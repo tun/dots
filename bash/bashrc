@@ -1,0 +1,30 @@
+# vim ft=bash
+# get current git branch
+function git_branch() {
+	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+	if [ ! "${BRANCH}" == "" ]
+	then
+		echo -e " ${BRANCH}"
+	else
+		echo ""
+	fi
+}
+# prompt
+export PS1="\n\[\e[36m\]┌\[\e[35m\] \w \e[34m\]\`git_branch\` \n\[\e[36m\]└─ \[\e[31m\]\\h \[\e[33m\]\$ \[\e[36m\]→ \[\e[0m\]"
+# update values of LINES & COLUMNS
+shopt -s checkwinsize
+# command history
+shopt -s histappend
+export PROMPT_COMMAND='history -a'
+export HISTCONTROL=ignorespace:erasedups
+export HISTIGNORE="ls:ps:history"
+export HISTFILE="$HOME/.bash_history"
+# fzf
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules -g ""'
+# bash aliases
+[ -f $HOME/.bash_aliases ] && . $HOME/.bash_aliases
+# load custom extra config if any
+[ -f $HOME/.extra ] && . $HOME/.extra
+
+alias reload="source $HOME/.bashrc"

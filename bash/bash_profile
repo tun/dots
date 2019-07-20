@@ -1,0 +1,2 @@
+# vim ft=bash
+[ -f $HOME/.bashrc ] && . $HOME/.bashrc

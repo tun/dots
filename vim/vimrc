@@ -1,0 +1,86 @@
+" vim: nocp fen fdm=marker fdl=0 tw=78 cc=78 noet
+set nocompatible
+set exrc
+set secure
+set modeline
+set noswapfile
+set nobackup
+set undofile
+set undodir=~/.vim/undo
+
+set lazyredraw
+set laststatus=2
+set showtabline=2
+set mouse=nvi
+set backspace=indent,eol,start
+set hidden
+set shortmess=aI
+set formatoptions-=cro
+set iskeyword+=-
+
+filetype plugin indent on
+syntax enable
+if has('termguicolors')
+	set notermguicolors
+endif
+
+nnoremap <silent> <Leader>n :set number!<CR>
+nnoremap <Leader>b :ls<cr>:b<space>
+" Splits
+set splitbelow
+set splitright
+" Don't use arrow keys {{{
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+" Switch to last buffer
+nnoremap <bs> <c-^>
+" Navigate trough tabs
+nmap > gt
+nmap < gT
+" Toggle number
+nnoremap <silent> <Leader>n :set number!<CR>
+nnoremap <silent> <Leader>N :set relativenumber!<CR>
+" Indent whole file
+nnoremap <Leader>= gg=G
+" Copy whole file
+nnoremap <Leader>y ggyG
+" }}}
+" Indentation {{{
+set autoindent
+set copyindent
+set preserveindent
+set linebreak
+set breakindent
+" }}}
+" Tabs {{{
+set noexpandtab
+set shiftround
+set shiftwidth=4
+set smarttab
+set softtabstop=4
+set tabstop=4
+" }}}
+" Search {{{
+set hlsearch
+set ignorecase
+set incsearch
+set showmatch
+set smartcase
+" }}}
+" Folds {{{
+set foldcolumn=0
+set foldenable
+set foldlevel=1
+set foldmethod=indent
+" }}}
+" Wildmenu {{{
+set path+=**
+set wildmenu
+set wildmode=full
+set wildignore+=*.png,*.jpg,*.jpeg,*.gif
+set wildignore+=__init__.py,*.pyc
+" }}}
