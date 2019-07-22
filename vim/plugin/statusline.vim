@@ -46,7 +46,6 @@ set statusline+=\ %{StatusBuffers()}:%n
 set statusline+=\ %t
 set statusline+=%=
 set statusline+=\ %l:%c
-"set statusline+=\ %{LineNoIndicator()}
 set statusline+=\ %Y
 "set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 "set statusline+=\/%{&ff}
@@ -55,4 +54,5 @@ set statusline+=\ %=
 set showcmd
 set noshowmode
 set noruler
+set laststatus=2
 " }}}
