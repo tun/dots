@@ -23,8 +23,8 @@ syntax enable
 
 " Persistent undo {{{
 set undofile
-if empty(glob(expand("%:p:h")))
-	call mkdir($HOME . ".vim/undo", "p")
+if empty(glob("~/.vim/undo"))
+	call mkdir($HOME . "/.vim/undo", "p")
 endif
 set undodir=~/.vim/undo
 " }}}

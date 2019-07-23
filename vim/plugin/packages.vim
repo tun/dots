@@ -2,7 +2,7 @@
 " Packages & plugins {{{
 function! PackagerInit() abort
   	packadd vim-packager
-  	call packager#init({'window_cmd': 'new'})
+	call packager#init({'window_cmd': 'new'})
 	" Default plugins {{{
 	call packager#add('andymass/vim-matchup')
 	call packager#add('haya14busa/is.vim')
@@ -40,7 +40,7 @@ command! PackagerClean call PackagerInit() | call packager#clean()
 command! PackagerStatus call PackagerInit() | call packager#status()
 " }}}
 " Install vim-packager {{{
-if empty(glob('~/.vim/pack/packager/opt/'))
+if empty(glob('~/.vim/pack/packager/opt/vim-packager'))
 	silent !git clone https://github.com/kristijanhusak/vim-packager ~/.vim/pack/packager/opt/vim-packager
 	:PackagerInstall
 endif
