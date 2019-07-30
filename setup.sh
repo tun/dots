@@ -85,6 +85,12 @@ install_packages(){
 				sudo apt install -y $i
 			done
 			sudo apt clean
+			read -p "${RED} Install docker environment? (y/n)>${NO_COLOR} " -n 1
+			if [[ $REPLY =~ ^[Yy]$ ]]; then
+				setup_docker
+			else
+				exit 1
+			fi
 			;;
 		Darwin*)
 			setup_brew
@@ -132,6 +138,17 @@ setup_dots() {
 	touch $HOME/.hushlogin
 	echo "${GREEN} Dots ready!${NO_COLOR}"
 	. $HOME/.bash_profile
+}
+
+setup_docker() {
+	curl -fsSL https://download.docker.com/linux/$(lsb_release -is | tr '[:upper:]' '[:lower:]')/gpg | sudo apt-key add -
+	sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(lsb_release -is | tr '[:upper:]' '[:lower:]') $(lsb_release -cs) stable"
+	sudo apt -y update
+	sudo apt -y install docker-ce docker-cli containerd.io
+	sudo usermod -aG docker $(whoami)
+	# docker-compose
+  - [ sh, -c, 'curl -L https://github.com/docker/compose/releases/download/$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep "tag_name" | cut -d \" -f4)/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose' ]
+  - [ sh, -c, 'chmod 755 /usr/local/bin/docker-compose' ]
 }
 
 usage() {
