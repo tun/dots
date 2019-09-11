@@ -45,6 +45,7 @@ brew_packages=(
 	"vim"
 )
 casks=(
+	"alacritty"
 	"docker"
 	"firefox"
 	"google-chrome"
@@ -118,6 +119,7 @@ install_packages(){
 
 clean_up(){
 	mkdir -p $HOME/.Trash
+	[ -e $HOME/.config/alacritty/alacritty.yml ] && mv $HOME/.config/alacritty/alacritty.yml $HOME/.Trash
 	[ -e $HOME/.bash_profile ] && mv $HOME/.bash_profile $HOME/.Trash
 	[ -e $HOME/.bash_aliases ] && mv $HOME/.bash_aliases $HOME/.Trash
 	[ -e $HOME/.bashrc ] && mv $HOME/.bashrc $HOME/.Trash
@@ -128,6 +130,7 @@ clean_up(){
 }
 
 setup_dots() {
+	[ ! -L $HOME/.config/alacritty/alacritty.yml ] && ln -s $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 	[ ! -L $HOME/.bash_profile ] && ln -s $PWD/bash/bash_profile $HOME/.bash_profile
 	[ ! -L $HOME/.bash_aliases ] && ln -s $PWD/bash/bash_aliases $HOME/.bash_aliases
 	[ ! -L $HOME/.bashrc ] && ln -s $PWD/bash/bashrc $HOME/.bashrc

@@ -100,6 +100,7 @@ set wildignore+=__init__.py,*.pyc
 " }}}
 
 " Misc {{{
+set fileformat=unix
 set formatoptions-=cro
 set iskeyword+=-
 set shortmess=aI
