@@ -32,7 +32,6 @@
 	editor = vim
 	quotepath = false
 	excludesfile = ~/.gitignore_global
-	autocrlf = true
 [diff]
 	tool = vimdiff
 [merge]

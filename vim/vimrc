@@ -37,6 +37,8 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 " Number toggle:
 nnoremap <silent> <Leader>n :set number!<CR>
+nnoremap <silent> <Leader>N :set relativenumber!<CR>
+" Buffers nav
 nnoremap <Leader>b :ls<cr>:b<space>
 " Don't use Ex mode, use Q for formatting:
 map Q gq
@@ -45,9 +47,6 @@ nnoremap <bs> <c-^>
 " Tab navigation
 nmap > gt
 nmap < gT
-" Toggle number
-nnoremap <silent> <Leader>n :set number!<CR>
-nnoremap <silent> <Leader>N :set relativenumber!<CR>
 " Indent whole file
 nnoremap <Leader>= gg=G
 " Copy whole file
@@ -103,6 +102,6 @@ set wildignore+=__init__.py,*.pyc
 set fileformat=unix
 set formatoptions-=cro
 set iskeyword+=-
-set shortmess=aI
+set shortmess=aIOt
 set showtabline=1
 " }}}

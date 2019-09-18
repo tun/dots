@@ -11,26 +11,24 @@ function! PackagerInit() abort
   	call packager#add('junegunn/fzf.vim')
 	call packager#add('tpope/vim-dispatch')
 	call packager#add('tpope/vim-eunuch')
-	call packager#add('tpope/vim-fugitive')
 	call packager#add('tpope/vim-surround')
 	" Colorschemes
 	call packager#add('challenger-deep-theme/vim', {'name': 'challenger-deep'})
 	call packager#add('ayu-theme/ayu-vim', {'name': 'ayu'})
   	" Language pack 
 	call packager#add('sheerun/vim-polyglot')
+	" Git
+	call packager#add('tpope/vim-fugitive')
+	call packager#add('junegunn/gv.vim')
+	call packager#add('mhinz/vim-signify')
+	" Extras
+	call packager#add('w0rp/ale')
+	call packager#add('editorconfig/editorconfig-vim', {'name': 'editorconfig'})
+	call packager#add('kshenoy/vim-signature')
 	" }}}
 	" Opt plugins {{{
 	" NOTE: use :packloadall to load these plugins.
-	" Git
-	call packager#add('junegunn/gv.vim', {'type': 'opt'})
-	call packager#add('mhinz/vim-signify', {'type': 'opt'})
-	call packager#add('tpope/vim-rhubarb', {'type': 'opt'})
-	" Extras
-	call packager#add('w0rp/ale', {'type': 'opt'})
-	call packager#add('AndrewRadev/splitjoin.vim', {'type': 'opt'})
-	call packager#add('editorconfig/editorconfig-vim', {'name': 'editorconfig', 'type': 'opt'})
 	call packager#add('mattn/emmet-vim', {'type': 'opt'})
-	call packager#add('kshenoy/vim-signature', {'type': 'opt'})
 	" }}}
 endfunction
 " Package management {{{
