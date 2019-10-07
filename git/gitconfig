@@ -1,6 +1,6 @@
 [user]
-	email = $GIT_USER_EMAIL
-	name = $GIT_USER_NAME
+	email = tun@resuelve.mx
+	name = Ricardo Tun
 [alias]
 	br = branch
 	ci = commit
@@ -14,6 +14,7 @@
 	hist = log --stat --graph --oneline --decorate --date=short
 	graph = log --color --graph --pretty=format:'%C(bold yellow)%h %C(bold red)%d%Creset %s %Cgreen(%cr) %C(magenta)<%an>%Creset' --abbrev-commit
 	orp = checkout --orphan
+	repos = remote -v
 	st = status --short -sb
 	stats = shortlog -e -s -m
 	tr = checkout --track -b
