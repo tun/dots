@@ -31,12 +31,14 @@ function! PackagerInit() abort
 	call packager#add('mattn/emmet-vim', {'type': 'opt'})
 	" }}}
 endfunction
+
 " Package management {{{
 command! PackagerInstall call PackagerInit() | call packager#install({ 'on_finish': 'quitall' })
 command! -bang PackagerUpdate call PackagerInit() | call packager#update({ 'force_hooks': '<bang>' })
 command! PackagerClean call PackagerInit() | call packager#clean()
 command! PackagerStatus call PackagerInit() | call packager#status()
 " }}}
+
 " Install vim-packager {{{
 if empty(glob('~/.vim/pack/packager/opt/vim-packager'))
 	silent !git clone https://github.com/kristijanhusak/vim-packager ~/.vim/pack/packager/opt/vim-packager
@@ -44,6 +46,7 @@ if empty(glob('~/.vim/pack/packager/opt/vim-packager'))
 endif
 " }}}
 " }}}
+
 " Settings & key maps " {{{
 " FZF {{{
 autocmd! FileType fzf
@@ -58,6 +61,7 @@ nnoremap <silent> <leader>/ :execute 'Ag ' . input('Search: ')<CR>
 command! CommandHistory call fzf#vim#command_history()
 command! SearchHistory call fzf#vim#search_history()
 " }}}
+
 " Git {{{
 noremap <silent> <Leader>gd :Gvdiff<CR>
 noremap <silent> <Leader>gs :Gstatus<CR>
@@ -65,11 +69,13 @@ noremap <silent> <Leader>gb :Gblame<CR>
 noremap <silent> <Leader>gr :SignifyRefresh<CR>
 noremap <silent> <Leader>gp :Dispatch git push<CR>
 " }}}
+
 " Signify {{{
 let g:signify_vcs_list = ['git', 'hg']
 nmap <leader>gj <plug>(signify-next-hunk)
 nmap <leader>gk <plug>(signify-prev-hunk)
 " }}}
+
 " Emmet {{{
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
@@ -77,3 +83,10 @@ let g:user_emmet_mode='a'
 let g:user_emmet_leader_key='<C-E>'
 " }}}
 " }}}
+
+" Local machine configuration {{{
+if filereadable(glob("~/.vimrc.local"))
+	source ~/.vimrc.local
+endif
+" }}}
+
