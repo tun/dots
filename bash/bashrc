@@ -9,35 +9,42 @@ function git_branch() {
 		echo ""
 	fi
 }
+
 # prompt
 case "$(uname)" in
 	Linux*) 
-		export PS1="\n \[\033[36m\]{\[\033[33m\]\w\[\033[36m\]} \e[34m\]\`git_branch\` \n \[\033[36m\]|> \[\033[34m\]$ \[\033[00m\]"
+		export PS1="\n \[\e[36m\]{\[\e[33m\]\w\[\e[36m\]} \e[34m\]\`git_branch\` \n \[\e[36m\]|> \[\e[34m\]$ \[\e[00m\]"
 		;;
 
 	Darwin*)
-		export PS1="\n\[\e[36m\]┌\[\e[35m\] \w \e[34m\]\`git_branch\` \n\[\e[36m\]└─ \[\e[31m\]\\h \[\e[33m\]\$ \[\e[36m\]→ \[\e[0m\]"
+		export PS1="\n\[\e[36m\]┌\[\e[35m\] \w \e[34m\]\`git_branch\` \n\[\e[36m\]└─ \[\e[31m\]\\h \[\e[33m\]$ \[\e[36m\]→ \[\e[0m\]"
 		;;
 esac
 
 # update values of LINES & COLUMNS
 shopt -s checkwinsize
+
 # command history
 shopt -s histappend
 export PROMPT_COMMAND='history -a'
 export HISTCONTROL=ignorespace:erasedups
 export HISTIGNORE="ls:ps:history"
 export HISTFILE="$HOME/.bash_history"
+
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules -g ""'
+
 # bash aliases
 [ -f $HOME/.bash_aliases ] && . $HOME/.bash_aliases
+
 # load custom extra config if any
 [ -f $HOME/.extra ] && . $HOME/.extra
 
+# asdf
+[ -f $HOME/.asdf/asdf.sh ] && . $HOME/.asdf/asdf.sh
+[ -f $HOME/.asdf/completions/asdf.bash ] && . $HOME/.asdf/completions/asdf.bash
+
+# reload bashrc
 alias reload="source $HOME/.bashrc"
 
-# asdf
-[ -f $HOME/.asdf/asdf.sh ] . $HOME/.asdf/asdf.sh
-[ -f $HOME/.asdf/completions/asdf.bash ] . $HOME/.asdf/completions/asdf.bash

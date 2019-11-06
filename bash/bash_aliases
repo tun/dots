@@ -1,3 +1,4 @@
+# vim ft=sh
 alias g="git"
 alias h="history"
 alias j="jobs -l"
