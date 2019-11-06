@@ -17,7 +17,7 @@ case "$(uname)" in
 
 	Darwin*)
 		export PS1="\n\[\e[36m\]┌\[\e[35m\] \w \e[34m\]\`git_branch\` \n\[\e[36m\]└─ \[\e[31m\]\\h \[\e[33m\]\$ \[\e[36m\]→ \[\e[0m\]"
-		``;;
+		;;
 esac
 
 # update values of LINES & COLUMNS

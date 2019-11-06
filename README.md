@@ -16,6 +16,11 @@ git clone git@github.com:tun/dots.git .dots && cd .dots
 ./setup --dots
 ```
 
+#### Install development environment:
+```
+./setup --dev 
+```
+
 #### Install packages:
 ```
 ./setup --packages 
@@ -25,14 +30,5 @@ _The setup script detects whether is running on macos or linux_.
 
 ### Usage
 ```
-./setup.sh [--packages | --dots | --all | --help]
-```
-
-## Extra config
-
-Set **git config** `user.name` & `user.email` variables in `~/.extra` file like this:
-
-```
-export GIT_USER_NAME="Ricardo Tun"
-export GIT_USER_EMAIL="me@capsula.local"
+./setup.sh [--packages | --dots | --dev | --all | --help]
 ```
