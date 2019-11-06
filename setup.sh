@@ -160,8 +160,15 @@ setup_docker() {
   	sudo chmod 755 /usr/local/bin/docker-compose
 }
 
+setup_asdf() {
+	git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf
+	cd $HOME/.asdf
+	git checkout -f "$(git describe --abbrev=0 --tags)"
+	cd -
+}
+
 usage() {
-    echo "Usage: ./setup.sh [--packages | --dots | --all | --help]"
+    echo "Usage: ./setup.sh [--packages | --dots | --dev | --all | --help]"
 }
 
 if [ $# -le 0 ]; then
@@ -182,10 +189,15 @@ else
     			clean_up
     			exit
     			;;
+    		--dev )
+    			setup_asdf
+    			exit
+    			;;
     		--all )
     			install_packages
     			clean_up
     			setup_dots
+    			setup_asdf
     			exit
     			;;
         	-h | --help )

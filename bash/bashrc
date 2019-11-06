@@ -1,4 +1,4 @@
-# vim ft=bash
+# vim ft=sh
 # get current git branch
 function git_branch() {
 	BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
@@ -10,7 +10,16 @@ function git_branch() {
 	fi
 }
 # prompt
-export PS1="\n\[\e[36m\]┌\[\e[35m\] \w \e[34m\]\`git_branch\` \n\[\e[36m\]└─ \[\e[31m\]\\h \[\e[33m\]\$ \[\e[36m\]→ \[\e[0m\]"
+case "$(uname)" in
+	Linux*) 
+		export PS1="\n \[\033[36m\]{\[\033[33m\]\w\[\033[36m\]} \e[34m\]\`git_branch\` \n \[\033[36m\]|> \[\033[34m\]$ \[\033[00m\]"
+		;;
+
+	Darwin*)
+		export PS1="\n\[\e[36m\]┌\[\e[35m\] \w \e[34m\]\`git_branch\` \n\[\e[36m\]└─ \[\e[31m\]\\h \[\e[33m\]\$ \[\e[36m\]→ \[\e[0m\]"
+		``;;
+esac
+
 # update values of LINES & COLUMNS
 shopt -s checkwinsize
 # command history
@@ -28,3 +37,7 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules -g "
 [ -f $HOME/.extra ] && . $HOME/.extra
 
 alias reload="source $HOME/.bashrc"
+
+# asdf
+[ -f $HOME/.asdf/asdf.sh ] . $HOME/.asdf/asdf.sh
+[ -f $HOME/.asdf/completions/asdf.bash ] . $HOME/.asdf/completions/asdf.bash
