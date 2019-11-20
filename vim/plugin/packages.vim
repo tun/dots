@@ -10,6 +10,7 @@ function! PackagerInit() abort
   	call packager#add('junegunn/fzf', {'do': './install --all && ln -s $(pwd) ~/.fzf'})
   	call packager#add('junegunn/fzf.vim')
 	call packager#add('tpope/vim-dispatch')
+	call packager#add('tpope/vim-endwise')
 	call packager#add('tpope/vim-eunuch')
 	call packager#add('tpope/vim-surround')
 	" Colorschemes
@@ -61,6 +62,27 @@ nnoremap <silent> <leader>/ :execute 'Ag ' . input('Search: ')<CR>
 command! CommandHistory call fzf#vim#command_history()
 command! SearchHistory call fzf#vim#search_history()
 " }}}
+
+" ALE {{{
+let g:ale_linters = {
+			\   'elixir': ['credo'],
+			\}
+
+let g:ale_fixers = {
+			\   'elixir': ['mix_format'],
+			\}
+
+let g:ale_completion_enabled = 1
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_text_changed = 'never'
+highlight ALEErrorSign ctermbg=NONE ctermfg=red
+highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
+let g:ale_linters_explicit = 1
+let g:ale_lint_on_save = 1
+let g:ale_fix_on_save = 1
+"}}}
 
 " Git {{{
 noremap <silent> <Leader>gd :Gvdiff<CR>
