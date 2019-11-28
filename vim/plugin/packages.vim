@@ -18,12 +18,13 @@ function! PackagerInit() abort
 	call packager#add('ayu-theme/ayu-vim', {'name': 'ayu'})
   	" Language pack 
 	call packager#add('sheerun/vim-polyglot')
+	call packager#add('slashmili/alchemist.vim')
 	" Git
 	call packager#add('tpope/vim-fugitive')
 	call packager#add('junegunn/gv.vim')
 	call packager#add('mhinz/vim-signify')
 	" Extras
-	call packager#add('w0rp/ale')
+	call packager#add('dense-analysis/ale')
 	call packager#add('editorconfig/editorconfig-vim', {'name': 'editorconfig'})
 	call packager#add('kshenoy/vim-signature')
 	" }}}

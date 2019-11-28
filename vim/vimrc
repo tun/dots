@@ -51,6 +51,12 @@ nmap < gT
 nnoremap <Leader>= gg=G
 " Copy whole file
 nnoremap <Leader>y ggyG
+" Save faster
+nnoremap <Leader>w :w<cr>
+" Quit faster
+nnoremap <Leader>q :q<cr>
+" Save & quit faster
+nnoremap <Leader>wq :wq<cr>
 " }}}
 
 " Splits {{{

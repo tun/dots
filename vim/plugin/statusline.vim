@@ -44,7 +44,7 @@ function! StatusBuffers()
 endfunction
 
 function! StatusWorkingDir()
-	return expand("%:h")
+	return fnamemodify(getcwd(), ':t')
 endfunction
 
 set statusline=
@@ -55,8 +55,8 @@ set statusline+=\ %M
 set statusline+=\ %{StatusBuffers()}:%n
 set statusline+=\ %t
 set statusline+=%=
-set statusline+=\ %{StatusWorkingDir()}
 set statusline+=\ %l:%c
+set statusline+=\ %{StatusWorkingDir()}
 set statusline+=\ %Y
 set statusline+=\ %{StatusGitBranch()}
 set statusline+=\ %=
