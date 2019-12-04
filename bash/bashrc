@@ -13,7 +13,7 @@ function git_branch() {
 # prompt
 case "$(uname)" in
 	Linux*) 
-		export PS1="\n \[\e[36m\]{\[\e[33m\]\w\[\e[36m\]} \e[34m\]\`git_branch\` \n \[\e[36m\]|> \[\e[34m\]\\$ \[\e[00m\]"
+		export PS1="\n \[\e[36m\]{\[\e[33m\]\w\[\e[36m\]} \e[34m\]\`git_branch\` \e[34m\]» \e[31m\]\\j \n \[\e[36m\]|> \[\e[34m\]\\$ \[\e[00m\]"
 		;;
 
 	Darwin*)
