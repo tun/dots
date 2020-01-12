@@ -14,8 +14,8 @@ function! PackagerInit() abort
 	call packager#add('tpope/vim-eunuch')
 	call packager#add('tpope/vim-surround')
 	" Colorschemes
-	call packager#add('challenger-deep-theme/vim', {'name': 'challenger-deep'})
 	call packager#add('ayu-theme/ayu-vim', {'name': 'ayu'})
+	call packager#add('challenger-deep-theme/vim', {'name': 'challenger-deep'})
   	" Language pack 
 	call packager#add('sheerun/vim-polyglot')
 	call packager#add('slashmili/alchemist.vim')

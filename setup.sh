@@ -24,6 +24,7 @@ apt_packages=(
 	"tree"
 	"vim-nox"
 )
+
 brew_packages=(
 	"bash"
 	"bash-completion"
@@ -47,11 +48,10 @@ brew_packages=(
 	"tree"
 	"vim"
 )
+
 casks=(
-	"alacritty"
 	"docker"
 	"firefox"
-	"google-chrome"
 	"google-cloud-sdk"
 	"kitty"
 	"spotify"
@@ -124,7 +124,6 @@ install_packages(){
 
 clean_up(){
 	mkdir -p $HOME/.Trash
-	[ -e $HOME/.config/alacritty/alacritty.yml ] && mv $HOME/.config/alacritty/alacritty.yml $HOME/.Trash
 	[ -e $HOME/.config/kitty/kitty.conf ] && mv $HOME/.config/kitty/kitty.conf $HOME/.Trash
 	[ -e $HOME/.bash_profile ] && mv $HOME/.bash_profile $HOME/.Trash
 	[ -e $HOME/.bash_aliases ] && mv $HOME/.bash_aliases $HOME/.Trash
@@ -136,7 +135,6 @@ clean_up(){
 }
 
 setup_dots() {
-	[ ! -L $HOME/.config/alacritty/alacritty.yml ] && ln -s $PWD/alacritty.yml $HOME/.config/alacritty/alacritty.yml
 	[ ! -L $HOME/.config/kitty/kitty.conf ] && ln -s $PWD/kitty.conf $HOME/.config/kitty/kitty.conf
 	[ ! -L $HOME/.bash_profile ] && ln -s $PWD/bash/bash_profile $HOME/.bash_profile
 	[ ! -L $HOME/.bash_aliases ] && ln -s $PWD/bash/bash_aliases $HOME/.bash_aliases
@@ -147,8 +145,8 @@ setup_dots() {
 	[ ! -L $HOME/.vim ] && ln -s $PWD/vim $HOME/.vim
 	touch $HOME/.hushlogin
 	echo "${GREEN} Dots ready!${NO_COLOR}"
-	. $HOME/.bash_profile
 	vim
+	. $HOME/.bash_profile
 }
 
 setup_docker() {

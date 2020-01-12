@@ -38,8 +38,6 @@ noremap <Right> <NOP>
 " Number toggle:
 nnoremap <silent> <Leader>n :set number!<CR>
 nnoremap <silent> <Leader>N :set relativenumber!<CR>
-" Buffers nav
-nnoremap <Leader>b :ls<cr>:b<space>
 " Don't use Ex mode, use Q for formatting:
 map Q gq
 " Switch to last buffer:

@@ -39,27 +39,30 @@ function! StatusPaste()
 	return (&paste) ? 'PASTE' : ''
 endfunction
 
-function! StatusBuffers()
-  return len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
-endfunction
-
 function! StatusWorkingDir()
 	return fnamemodify(getcwd(), ':t')
 endfunction
 
-set statusline=
-set statusline+=\ %{toupper(g:currentmode[mode()])}
-set statusline+=\ %{StatusReadonly()}
-set statusline+=\ %{StatusPaste()}
-set statusline+=\ %M
-set statusline+=\ %{StatusBuffers()}:%n
-set statusline+=\ %t
-set statusline+=%=
-set statusline+=\ %l:%c
-set statusline+=\ %{StatusWorkingDir()}
-set statusline+=\ %Y
-set statusline+=\ %{StatusGitBranch()}
-set statusline+=\ %=
+function! BuildStatusLine()
+	let statusline=''
+	let statusline.='%#CursorLineNr#'
+	let statusline.=' %{toupper(g:currentmode[mode()])}'
+	let statusline.='%#LineNr#'
+	let statusline.=' %{StatusReadonly()}'
+	let statusline.=' %{StatusPaste()}'
+	let statusline.=' %M'
+	let statusline.=' %t'
+	let statusline.='%='
+	let statusline.=' %l:%c'
+	let statusline.=' %Y'
+	let statusline.='%#CursorLineNr#'
+	let statusline.=' %{StatusWorkingDir()}'
+	let statusline.=' %{StatusGitBranch()}'
+	let statusline.=' %='
+	return statusline
+endfunction
+
+set statusline=%!BuildStatusLine()
 set showcmd
 set noshowmode
 set noruler
