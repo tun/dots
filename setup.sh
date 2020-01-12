@@ -56,7 +56,6 @@ casks=(
 	"kitty"
 	"spotify"
 	"the-unarchiver"
-	"visual-studio-code"
 	"vlc"
 	# fonts
 	"font-fira-code"

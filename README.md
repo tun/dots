@@ -1,8 +1,10 @@
 # dots
 
+![Screenshot](screenshot.png)
+
 My personal config files with some magic to setup fresh macos/linux installs.
 
-**Nota:** *This is a WIP of my current environment, please read the source code before run this.*
+**Nota:** *This is a forever WIP of my environment, please read the source code before run this.*
 
 ## Installing
 
@@ -10,6 +12,8 @@ Get the source and cd into the directory:
 ```
 git clone git@github.com:tun/dots.git .dots && cd .dots
 ```
+
+_The setup script detects whether is running on macos or linux_.
 
 #### Install dot files:
 ```
@@ -25,9 +29,6 @@ git clone git@github.com:tun/dots.git .dots && cd .dots
 ```
 ./setup --packages 
 ```
-
-_The setup script detects whether is running on macos or linux_.
-
 ### Usage
 ```
 ./setup.sh [--packages | --dots | --dev | --all | --help]
