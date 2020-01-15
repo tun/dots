@@ -25,12 +25,12 @@ function! PackagerInit() abort
 	call packager#add('mhinz/vim-signify')
 	" Extras
 	call packager#add('dense-analysis/ale')
-	call packager#add('editorconfig/editorconfig-vim', {'name': 'editorconfig'})
 	call packager#add('kshenoy/vim-signature')
 	" }}}
 	" Opt plugins {{{
 	" NOTE: use :packloadall to load these plugins.
-	call packager#add('mattn/emmet-vim', {'type': 'opt'})
+	call packager#add('editorconfig/editorconfig-vim', 
+				\ {'name': 'editorconfig', 'type': 'opt'})
 	" }}}
 endfunction
 
@@ -97,13 +97,6 @@ noremap <silent> <Leader>gp :Dispatch git push<CR>
 let g:signify_vcs_list = ['git', 'hg']
 nmap <leader>gj <plug>(signify-next-hunk)
 nmap <leader>gk <plug>(signify-prev-hunk)
-" }}}
-
-" Emmet {{{
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
-let g:user_emmet_mode='a'
-let g:user_emmet_leader_key='<C-E>'
 " }}}
 " }}}
 

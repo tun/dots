@@ -15,7 +15,7 @@ function git_branch() {
 if [ "$SSH_CONNECTION" ]; then
 	export PS1="\n \[\e[36m\]{\[\e[33m\]\w\[\e[36m\]} \e[34m\]\`git_branch\` \e[34m\]→ \e[31m\]\\j \n \[\e[36m\]|> \[\e[34m\]\\$ \[\e[00m\]";
 else
-	export PS1="\n\[\e[36m\]┌\[\e[35m\] \w \e[34m\]\`git_branch\` \n\[\e[36m\]└─ \[\e[31m\]\\h \[\e[33m\]\\$ \e[31m\]\\j \[\e[36m\]→ \[\e[0m\]";
+	export PS1="\n\[\e[36m\]┌\[\e[35m\] \w \e[34m\]\`git_branch\` \n\[\e[36m\]└─ \[\e[31m\]\\h \[\e[36m\]→ \e[31m\]\\j \[\e[33m\]\\$ \[\e[0m\]";
 fi
 
 # update values of LINES & COLUMNS

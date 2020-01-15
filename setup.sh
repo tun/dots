@@ -31,7 +31,6 @@ brew_packages=(
 	"cmatrix"
 	"coreutils"
 	"curl"
-	"dbeaver-community"
 	"findutils"
 	"git"
 	"htop"
@@ -40,7 +39,6 @@ brew_packages=(
 	"kubernetes-cli"
 	"multipass"
 	"multitail"
-	"oracle-jdk"
 	"rsync"
 	"the_silver_searcher"
 	"tig"
@@ -51,12 +49,12 @@ brew_packages=(
 
 casks=(
 	"docker"
-	"firefox"
 	"google-cloud-sdk"
+	"homebrew/cask-versions/firefox-developer-edition"
 	"kitty"
 	"spotify"
 	"the-unarchiver"
-	"vlc"
+	"yt-music"
 	# fonts
 	"font-fira-code"
 	"font-hack"

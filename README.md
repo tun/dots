@@ -1,8 +1,8 @@
 # dots
 
-![Screenshot](screenshot.png)
-
 My personal config files with some magic to setup fresh macos/linux installs.
+
+![Screenshot](screenshot.png)
 
 **Nota:** *This is a forever WIP of my environment, please read the source code before run this.*
 
