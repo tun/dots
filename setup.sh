@@ -37,7 +37,6 @@ brew_packages=(
 	"hub"
 	"hugo"
 	"kubernetes-cli"
-	"multipass"
 	"multitail"
 	"rsync"
 	"the_silver_searcher"
@@ -52,6 +51,7 @@ casks=(
 	"google-cloud-sdk"
 	"homebrew/cask-versions/firefox-developer-edition"
 	"kitty"
+	"multipass"
 	"spotify"
 	"the-unarchiver"
 	"yt-music"
@@ -68,13 +68,8 @@ setup_brew() {
 		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 		# font casks repo
 		brew tap homebrew/cask-fonts
+		brew tap homebrew/cask-versions
 		clear
-		read -p "${RED} Install brew packages? (y/n)>${NO_COLOR} " -n 1
-		if [[ $REPLY =~ ^[Yy]$ ]]; then
-			install_packages
-		else
-			exit 1
-		fi
 	fi
 }
 
@@ -191,8 +186,8 @@ else
     			exit
     			;;
     		--all )
-    			install_packages
     			clean_up
+    			install_packages
     			setup_dots
     			setup_asdf
     			exit
