@@ -100,9 +100,3 @@ nmap <leader>gk <plug>(signify-prev-hunk)
 " }}}
 " }}}
 
-" Local machine configuration {{{
-if filereadable(glob("~/.vimrc.local"))
-	source ~/.vimrc.local
-endif
-" }}}
-

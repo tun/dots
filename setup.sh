@@ -52,6 +52,7 @@ casks=(
 	"homebrew/cask-versions/firefox-developer-edition"
 	"kitty"
 	"multipass"
+	"psequel"
 	"spotify"
 	"the-unarchiver"
 	"yt-music"
