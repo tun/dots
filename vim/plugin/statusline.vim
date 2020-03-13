@@ -22,15 +22,6 @@ let g:currentmode={
 			\ 't'      : 'Terminal'
 			\}"
 
-function! GetGitBranch()
-	return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
-endfunction
-
-function! StatusGitBranch()
-	let l:branchname = GetGitBranch()
-	return strlen(l:branchname) > 0?' '.l:branchname.' ':''
-endfunction
-
 function! StatusReadonly()
 	return (&readonly || !&modifiable) ? '' : ''
 endfunction
@@ -57,7 +48,7 @@ function! BuildStatusLine()
 	let statusline.=' %Y'
 	let statusline.='%#CursorLineNr#'
 	let statusline.=' %{StatusWorkingDir()}'
-	let statusline.=' %{StatusGitBranch()}'
+	let statusline.=' %{fugitive#head()}'
 	let statusline.=' %='
 	return statusline
 endfunction
