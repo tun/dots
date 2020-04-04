@@ -25,7 +25,7 @@ shopt -s checkwinsize
 shopt -s histappend
 export PROMPT_COMMAND='history -a'
 export HISTCONTROL=ignorespace:erasedups
-export HISTIGNORE="ls:ps:history"
+export HISTIGNORE=":bg:fg:ls:ps:history"
 export HISTFILE="$HOME/.bash_history"
 
 # fzf

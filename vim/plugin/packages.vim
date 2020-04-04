@@ -9,9 +9,11 @@ function! PackagerInit() abort
 	call packager#add('jiangmiao/auto-pairs')
   	call packager#add('junegunn/fzf', {'do': './install --all && ln -s $(pwd) ~/.fzf'})
   	call packager#add('junegunn/fzf.vim')
+	call packager#add('tpope/vim-commentary')
 	call packager#add('tpope/vim-dispatch')
 	call packager#add('tpope/vim-endwise')
 	call packager#add('tpope/vim-eunuch')
+	call packager#add('tpope/vim-repeat')
 	call packager#add('tpope/vim-surround')
 	" Colorschemes
 	call packager#add('ayu-theme/ayu-vim', {'name': 'ayu'})
