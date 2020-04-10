@@ -44,21 +44,26 @@ brew_packages=(
 	"tmux"
 	"tree"
 	"vim"
+	"koekeishiya/formulae/yabai"
+	"koekeishiya/formulae/skhd"
 )
 
 casks=(
+	"authy"
 	"docker"
 	"google-cloud-sdk"
 	"homebrew/cask-versions/firefox-developer-edition"
 	"kitty"
 	"multipass"
+	"postgres"
 	"psequel"
 	"spotify"
 	"the-unarchiver"
+	"visual-studio-code"
 	"yt-music"
 	# fonts
 	"font-fira-code"
-	"font-hack"
+	"font-victor-mono"
 )
 
 
@@ -125,6 +130,8 @@ clean_up(){
 	[ -e $HOME/.gitignore_global ] && mv $HOME/.gitignore_global $HOME/.Trash
 	[ -e $HOME/.tmux.conf ] && mv $HOME/.tmux.conf $HOME/.Trash
 	[ -e $HOME/.vim ] && mv $HOME/.vim $HOME/.Trash
+	[ -e $HOME/.skhdrc ] && mv $HOME/.skhdrc $HOME/.Trash
+	[ -e $HOME/.yabairc ] && mv $HOME/.yabairc $HOME/.Trash
 }
 
 setup_dots() {
@@ -136,6 +143,8 @@ setup_dots() {
 	[ ! -L $HOME/.gitignore_global ] && ln -s $PWD/git/gitignore_global $HOME/.gitignore_global
 	[ ! -L $HOME/.tmux.conf ] && ln -s $PWD/tmux.conf $HOME/.tmux.conf
 	[ ! -L $HOME/.vim ] && ln -s $PWD/vim $HOME/.vim
+	[ ! -L $HOME/.yabairc ] && ln -s $PWD/yabai/yabairc $HOME/.yabairc
+	[ ! -L $HOME/.skhdrc ] && ln -s $PWD/yabai/skhdrc $HOME/.skhdrc
 	touch $HOME/.hushlogin
 	echo "${GREEN} Dots ready!${NO_COLOR}"
 	vim

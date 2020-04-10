@@ -1,0 +1,34 @@
+alt - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~/Resuelve
+alt - f : yabai -m window --toggle zoom-fullscreen
+alt + shift - r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+
+# focus window
+alt - l : yabai -m window --focus east
+alt - k : yabai -m window --focus north
+alt - j : yabai -m window --focus south
+alt - h : yabai -m window --focus west
+
+# swap managed window
+shift + alt - l : yabai -m window --swap east
+shift + alt - k : yabai -m window --swap north
+shift + alt - j : yabai -m window --swap south
+shift + alt - h : yabai -m window --swap west
+
+# move managed window
+shift + cmd - l : yabai -m window --warp east
+shift + cmd - k : yabai -m window --warp north
+shift + cmd - j : yabai -m window --warp south
+shift + cmd - h : yabai -m window --warp west
+
+# move managed window between displays
+meh - l : yabai -m window --display 2
+meh - h : yabai -m window --display 1
+
+
+# balance size of windows
+shift + alt - backspace : yabai -m space --balance
+
+hyper - 1 : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~
+hyper - 2 : /Applications/kitty.app/Contents/MacOS/kitty --single-instance  ssh dietpi@192.168.8.123
+
+alt + shift - return : /Applications/kitty.app/Contents/MacOS/kitty --single-instance -d ~/Resuelve ssh capsula
