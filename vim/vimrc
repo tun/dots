@@ -43,6 +43,8 @@ nnoremap <silent> <Leader>N :set relativenumber!<CR>
 map Q gq
 " Switch to last buffer:
 nnoremap <bs> <c-^>
+" Toggle open/close folds
+nnoremap <tab> za
 " Tab navigation
 nmap > gt
 nmap < gT
@@ -58,7 +60,7 @@ nnoremap <Leader>q :q<cr>
 nnoremap <Leader>wq :wq<cr>
 " }}}
 
-" Splits {{{
+" Splits the right way. {{{
 set splitbelow
 set splitright
 " }}}
@@ -98,7 +100,7 @@ set foldmethod=indent
 " Wildmenu {{{
 set path+=**
 set wildmenu
-set wildmode=full
+set wildmode=list:full
 set wildignore+=*.png,*.jpg,*.jpeg,*.gif
 set wildignore+=__init__.py,*.pyc
 " }}}

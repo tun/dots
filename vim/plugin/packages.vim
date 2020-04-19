@@ -16,7 +16,6 @@ function! PackagerInit() abort
 	call packager#add('tpope/vim-repeat')
 	call packager#add('tpope/vim-surround')
 	" Colorschemes
-	call packager#add('ayu-theme/ayu-vim', {'name': 'ayu'})
 	call packager#add('challenger-deep-theme/vim', {'name': 'challenger-deep'})
   	" Language pack 
 	call packager#add('sheerun/vim-polyglot')
@@ -56,11 +55,9 @@ endif
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0
 			\| autocmd BufLeave <buffer> set laststatus=2
-nnoremap <Leader>[ :Buffers<CR>
-nnoremap <Leader>f :Lines<CR>
-nnoremap <Leader>bf :BLines<CR>
-nnoremap <Leader>o :Files<CR>
-nnoremap <Leader>p :GFiles<CR>
+nnoremap <CR> :Buffers<CR>
+nnoremap <Leader>] :GFiles<CR>
+nnoremap <Leader>[ :Files<CR>
 nnoremap <silent> <leader>/ :execute 'Ag ' . input('Search: ')<CR>
 command! CommandHistory call fzf#vim#command_history()
 command! SearchHistory call fzf#vim#search_history()
