@@ -1,31 +1,13 @@
 #!/usr/bin/env sh
-
-# bar settings
-yabai -m config status_bar                   on
-yabai -m config status_bar_text_font         "Futura:Medium:14.0"
-yabai -m config status_bar_background_color  0xff1e1c31
-yabai -m config status_bar_foreground_color  0xffcbe3e7
-yabai -m config status_bar_space_icon_strip  🐽 🌮 🌎 🤘🏽 🍺 🔥 🏝 🙂 🙃 👽
-yabai -m config status_bar_power_icon_strip  🔋 ⚡
-yabai -m config status_bar_space_icon        👾
-yabai -m config status_bar_clock_icon        👨🏾‍💻
-
 # global settings
 yabai -m config mouse_follows_focus          off
 yabai -m config focus_follows_mouse          off
 yabai -m config window_placement             second_child
-yabai -m config window_topmost               off
+yabai -m config window_topmost               on
 yabai -m config window_opacity               on
 yabai -m config window_opacity_duration      0.0
 yabai -m config window_shadow                on
-yabai -m config window_border                on
-yabai -m config window_border_placement      inset
-yabai -m config window_border_width          2
-yabai -m config window_border_radius         4
-yabai -m config active_window_border_topmost off
-yabai -m config active_window_border_color   0xff65b2ff
-yabai -m config normal_window_border_color   0xff1e1c31
-yabai -m config insert_window_border_color   0xffffe9aa
+yabai -m config insert_feedback_color        0xaa65b2ff
 yabai -m config active_window_opacity        1.0
 yabai -m config normal_window_opacity        0.75
 yabai -m config split_ratio                  0.50
@@ -43,18 +25,24 @@ yabai -m config right_padding                10
 yabai -m config window_gap                   10
 
 # window rules
-yabai -m rule --add app=Authy\ Desktop manage=off
-yabai -m rule --add app=Finder manage=off
-yabai -m rule --add app=System\ Preferences manage=off
-yabai -m rule --add app=Telegram manage=off
-yabai -m rule --add app=The\ Unarchiver manage=off
+# desktop 1
 yabai -m rule --add app=Terminal space=1 manage=off
+# desktop 2
 yabai -m rule --add app=Code space=2
+yabai -m rule --add app="^PSequel$" space=2
+# desktop 3
 yabai -m rule --add app="^Firefox Developer Edition$" space=3
 yabai -m rule --add app="^Google Chrome$" space=3
 yabai -m rule --add app="^Mail$" space=3
+# desktop 4
 yabai -m rule --add app=Spotify space=4
 yabai -m rule --add app=YT\ Music space=4
-yabai -m rule --add app="^VLC$" manage=off
+# etc
+yabai -m rule --add app="^VLC$" manage=off sticky=on
+yabai -m rule --add app=Authy\ Desktop manage=off
+yabai -m rule --add app=Finder manage=off
+yabai -m rule --add app=System\ Preferences manage=off sticky=on
+yabai -m rule --add app=Telegram manage=off
+yabai -m rule --add app=The\ Unarchiver manage=off
 
 echo "yabai configuration loaded.."

@@ -36,8 +36,7 @@ brew_packages=(
 	"htop"
 	"hub"
 	"hugo"
-	"kubernetes-cli"
-	"multitail"
+	"kubectl"
 	"rsync"
 	"the_silver_searcher"
 	"tig"
@@ -50,9 +49,8 @@ brew_packages=(
 
 casks=(
 	"authy"
-	"docker"
 	"google-cloud-sdk"
-	"homebrew/cask-versions/firefox-developer-edition"
+	"homebrew/cask-versions/google-chrome-dev"
 	"kitty"
 	"multipass"
 	"postgres"
