@@ -34,22 +34,36 @@ function! StatusWorkingDir()
 	return fnamemodify(getcwd(), ':t')
 endfunction
 
+function! StatusLineColors()
+	highlight StatusLine ctermfg=13 ctermbg=8 cterm=bold,italic
+	highlight CurrentMode ctermfg=0 ctermbg=8 cterm=none
+	highlight CurrentProject ctermfg=12 ctermbg=8 cterm=bold
+	highlight GitBranch ctermfg=3 ctermbg=8 cterm=none
+endfunction
+
+augroup statusline_colors
+	autocmd!
+	autocmd InsertEnter * 
+				\ highlight StatusLine ctermfg=3 ctermbg=8
+				\| highlight CurrentMode ctermfg=2 ctermbg=8 cterm=bold
+
+	autocmd InsertLeave *
+				\ call StatusLineColors()
+
+	autocmd VimEnter * 
+				\ call StatusLineColors()
+augroup END
+
 function! BuildStatusLine()
 	let statusline=''
-	let statusline.='%#CursorLineNr#'
-	let statusline.=' %{toupper(g:currentmode[mode()])}'
-	let statusline.='%#LineNr#'
-	let statusline.=' %{StatusReadonly()}'
-	let statusline.=' %{StatusPaste()}'
+	let statusline.='%#CurrentMode# %{toupper(g:currentmode[mode()])}'
 	let statusline.=' %M'
-	let statusline.=' %t'
-	let statusline.='%='
-	let statusline.=' %l:%c'
-	let statusline.=' %Y'
-	let statusline.='%#CursorLineNr#'
-	let statusline.=' %{StatusWorkingDir()}'
-	let statusline.=' %{fugitive#head()}'
-	let statusline.=' %='
+	let statusline.='%0* %t %='
+	let statusline.='%{StatusReadonly()}'
+	let statusline.=' %{StatusPaste()} '
+	let statusline.='%#CurrentMode# %Y '
+	let statusline.='%#CurrentProject# %{StatusWorkingDir()} '
+	let statusline.='%#GitBranch# %{fugitive#head()} '
 	return statusline
 endfunction
 
