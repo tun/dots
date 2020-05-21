@@ -25,11 +25,11 @@ function! PackagerInit() abort
 	call packager#add('junegunn/gv.vim')
 	call packager#add('mhinz/vim-signify')
 	" Extras
-	call packager#add('dense-analysis/ale')
 	call packager#add('kshenoy/vim-signature')
 	" }}}
 	" Opt plugins {{{
 	" NOTE: use :packloadall to load these plugins.
+	call packager#add('dense-analysis/ale')
 	call packager#add('editorconfig/editorconfig-vim', 
 				\ {'name': 'editorconfig', 'type': 'opt'})
 	" }}}
