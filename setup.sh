@@ -78,7 +78,7 @@ setup_brew() {
 		echo "${BLUE} Brew is already installed.${NO_COLOR}"
 		setup_brew_fonts_repos
 	else
-		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+		/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 		setup_brew_fonts_repos
 	fi
 	clear
