@@ -45,6 +45,7 @@ brew_packages=(
 	"vim"
 	"koekeishiya/formulae/yabai"
 	"koekeishiya/formulae/skhd"
+	"docker-compose"
 )
 
 casks=(
@@ -62,6 +63,8 @@ casks=(
 	# fonts
 	"font-fira-code"
 	"font-victor-mono"
+	"docker"
+	"kubectl"
 )
 
 setup_brew_fonts_repos(){
