@@ -64,17 +64,24 @@ casks=(
 	"font-victor-mono"
 )
 
+setup_brew_fonts_repos(){
+	if [ ! -d "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-fonts" ]; then
+		brew tap homebrew/cask-fonts
+	fi
+	if [ ! -d "/usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask-versions" ]; then
+		brew tap homebrew/cask-versions
+	fi
+}
 
 setup_brew() {
 	if [ -f "$(which brew)" ]; then
 		echo "${BLUE} Brew is already installed.${NO_COLOR}"
+		setup_brew_fonts_repos
 	else
 		ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-		# font casks repo
-		brew tap homebrew/cask-fonts
-		brew tap homebrew/cask-versions
-		clear
+		setup_brew_fonts_repos
 	fi
+	clear
 }
 
 
