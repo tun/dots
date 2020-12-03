@@ -1,8 +1,8 @@
 " vim: nocp fen fdm=marker fdl=0 tw=78 cc=78 noet
 
-if &compatible
-	set nocompatible
-endif
+" if &compatible
+" 	set nocompatible
+" endif
 
 set exrc
 set secure
@@ -11,13 +11,9 @@ set noswapfile
 set nobackup
 set hidden
 set lazyredraw
-set nottyfast
+"set nottyfast
 set backspace=indent,eol,start
 set mouse=nvi
-
-if has('termguicolors')
-	set notermguicolors
-endif
 
 filetype plugin indent on
 syntax enable
@@ -37,14 +33,16 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 " Number toggle:
-nnoremap <silent> <Leader>n :set number!<CR>
-nnoremap <silent> <Leader>N :set relativenumber!<CR>
+nnoremap <silent> <Leader>n :set number! relativenumber!<CR>
 " Don't use Ex mode, use Q for formatting:
 map Q gq
+" Make Y consistent with C and D.
+nnoremap Y y$
 " Switch to last buffer:
 nnoremap <bs> <c-^>
-" Toggle open/close folds
-nnoremap <tab> za
+" Fold navigation
+nnoremap <tab> zj
+nnoremap <S-tab> zk
 " Tab navigation
 nmap > gt
 nmap < gT
@@ -58,6 +56,8 @@ nnoremap <Leader>w :w<cr>
 nnoremap <Leader>q :q<cr>
 " Save & quit faster
 nnoremap <Leader>wq :wq<cr>
+" Zoom split
+map  <C-w>z <C-w>\|<C-w>_
 " }}}
 
 " Splits the right way. {{{
@@ -103,6 +103,7 @@ set wildmenu
 set wildmode=list:full
 set wildignore+=*.png,*.jpg,*.jpeg,*.gif
 set wildignore+=__init__.py,*.pyc
+set wildignore+=deps,_build,rel
 " }}}
 
 " Misc {{{
@@ -111,4 +112,5 @@ set formatoptions-=cro
 set iskeyword+=-
 set shortmess=aIOt
 set showtabline=1
+set visualbell t_vb=
 " }}}

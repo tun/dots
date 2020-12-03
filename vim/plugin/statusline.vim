@@ -37,7 +37,7 @@ endfunction
 function! StatusLineColors()
 	highlight StatusLine ctermfg=13 ctermbg=8 cterm=bold,italic
 	highlight CurrentMode ctermfg=0 ctermbg=8 cterm=none
-	highlight CurrentProject ctermfg=12 ctermbg=8 cterm=bold
+	highlight CurrentProject ctermfg=12 ctermbg=8 cterm=bold,italic
 	highlight GitBranch ctermfg=3 ctermbg=8 cterm=none
 endfunction
 
