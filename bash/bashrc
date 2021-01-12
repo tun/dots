@@ -42,6 +42,11 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules -g "
 [ -f $HOME/.asdf/asdf.sh ] && . $HOME/.asdf/asdf.sh
 [ -f $HOME/.asdf/completions/asdf.bash ] && . $HOME/.asdf/completions/asdf.bash
 
+# vi-mode
+set -o vi
+bind -m vi-command 'Control-l: clear-screen'
+bind -m vi-insert 'Control-l: clear-screen'
+
 # reload bashrc
 alias reload="source $HOME/.bashrc"
 
