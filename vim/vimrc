@@ -27,6 +27,10 @@ set undodir=~/.vim/undo
 " }}}
 
 " Key maps {{{
+nnoremap ; :
+"let mapleader = "\\"
+let maplocalleader = "\<Space>"
+map <LocalLeader>, :tabnew $MYVIMRC<cr>
 " Don't use arrow keys:
 noremap <Up> <NOP>
 noremap <Down> <NOP>
@@ -51,11 +55,11 @@ nnoremap <Leader>= gg=G
 " Copy whole file
 nnoremap <Leader>y ggyG
 " Save faster
-nnoremap <Leader>w :w<cr>
+nnoremap <LocalLeader>w :w<cr>
 " Quit faster
-nnoremap <Leader>q :q<cr>
+nnoremap <LocalLeader>q :q<cr>
 " Save & quit faster
-nnoremap <Leader>wq :wq<cr>
+nnoremap <LocalLeader>wq :wq<cr>
 " Zoom split
 map  <C-w>z <C-w>\|<C-w>_
 " }}}
@@ -112,5 +116,8 @@ set formatoptions-=cro
 set iskeyword+=-
 set shortmess=aIOt
 set showtabline=1
+set timeoutlen=500
 set visualbell t_vb=
+" disable netrw plugin
+let g:loaded_netrwPlugin = 0
 " }}}
