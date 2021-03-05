@@ -5,11 +5,10 @@
 	br = branch
 	ci = commit
 	co = checkout
-	d = difftool
-	di = diff --word-diff
+	d = diff --word-diff
+	di = difftool
 	dist = diff --stat
 	files = ls-files
-	graph = log --graph --oneline --decorate
 	last = log -n 1 -s --decorate
 	hist = log --stat --graph --oneline --decorate --date=short
 	graph = log --color --graph --pretty=format:'%C(bold yellow)%h %C(bold red)%d%Creset %s %Cgreen(%cr) %C(magenta)<%an>%Creset' --abbrev-commit
@@ -35,7 +34,14 @@
 	excludesfile = ~/.gitignore_global
 [diff]
 	tool = vimdiff
+[color "diff"]
+	old = red strike
+	new = green italic
 [merge]
 	tool = vimdiff
 [difftool]
 	prompt = false
+[pull]
+	rebase = true
+[init]
+	defaultBranch = master
