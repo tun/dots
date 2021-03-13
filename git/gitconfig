@@ -1,6 +1,5 @@
-[user]
-	email = tun@resuelve.mx
-	name = Ricardo Tun
+[include]
+	path = ~/.gitconfig_local
 [alias]
 	br = branch
 	ci = commit
