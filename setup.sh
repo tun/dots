@@ -134,6 +134,7 @@ clean_up(){
 	[ -e $HOME/.bash_profile ] && mv $HOME/.bash_profile $HOME/.Trash
 	[ -e $HOME/.bash_aliases ] && mv $HOME/.bash_aliases $HOME/.Trash
 	[ -e $HOME/.bashrc ] && mv $HOME/.bashrc $HOME/.Trash
+	[ -e $HOME/.conkyrc ] && mv $HOME/.conkyrc $HOME/.Trash
 	[ -e $HOME/.gitconfig ] && mv $HOME/.gitconfig $HOME/.Trash
 	[ -e $HOME/.gitignore_global ] && mv $HOME/.gitignore_global $HOME/.Trash
 	[ -e $HOME/.tmux.conf ] && mv $HOME/.tmux.conf $HOME/.Trash
@@ -147,6 +148,7 @@ setup_dots() {
 	[ ! -L $HOME/.bash_profile ] && ln -s $PWD/bash/bash_profile $HOME/.bash_profile
 	[ ! -L $HOME/.bash_aliases ] && ln -s $PWD/bash/bash_aliases $HOME/.bash_aliases
 	[ ! -L $HOME/.bashrc ] && ln -s $PWD/bash/bashrc $HOME/.bashrc
+	[ ! -L $HOME/.conkyrc ] && ln -s $PWD/conkyrc $HOME/.conkyrc
 	[ ! -L $HOME/.gitconfig ] && ln -s $PWD/git/gitconfig $HOME/.gitconfig
 	[ ! -L $HOME/.gitignore_global ] && ln -s $PWD/git/gitignore_global $HOME/.gitignore_global
 	[ ! -L $HOME/.tmux.conf ] && ln -s $PWD/tmux.conf $HOME/.tmux.conf
