@@ -56,9 +56,6 @@ endif
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0
 	  \| autocmd BufLeave <buffer> set laststatus=2
-nnoremap <CR> :Buffers<CR>
-nnoremap <Leader>] :GFiles<CR>
-nnoremap <Leader>[ :Files<CR>
 nnoremap <silent> <leader>/ :execute 'Ag ' . input('Search: ')<CR>
 command! CommandHistory call fzf#vim#command_history()
 command! SearchHistory call fzf#vim#search_history()

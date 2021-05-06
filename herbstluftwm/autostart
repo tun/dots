@@ -99,9 +99,9 @@ hc set frame_border_width 3
 hc set always_show_frame 0
 hc set frame_bg_transparent 1
 hc set frame_transparent_width 0
-hc set frame_gap 10
+hc set frame_gap 3
 hc set frame_padding 0
-hc set window_gap 10
+hc set window_gap 3
 hc set smart_window_surroundings 0
 hc set smart_frame_surroundings 1
 
@@ -132,6 +132,7 @@ hc set tree_style '╾│ ├└╼─┐'
 # autostart
 hc spawn albert
 hc spawn picom -b --dbus
+hc spawn xmodmap ~/.Xmodmap
 
 # shortcut keys to launch stuff
 [ -f $HOME/.config/herbstluftwm/shortcuts.sh ] && . $HOME/.config/herbstluftwm/shortcuts.sh

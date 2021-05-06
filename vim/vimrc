@@ -31,37 +31,15 @@ nnoremap ; :
 "let mapleader = "\\"
 let maplocalleader = "\<Space>"
 map <LocalLeader>, :tabnew $MYVIMRC<cr>
-" Don't use arrow keys:
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-" Number toggle:
-nnoremap <silent> <Leader>n :set number! relativenumber!<CR>
 " Don't use Ex mode, use Q for formatting:
 map Q gq
 " Make Y consistent with C and D.
 nnoremap Y y$
-" Switch to last buffer:
-nnoremap <bs> <c-^>
 " Fold navigation
 nnoremap <tab> zj
 nnoremap <S-tab> zk
-" Tab navigation
-nmap > gt
-nmap < gT
-" Indent whole file
-nnoremap <Leader>= gg=G
 " Copy whole file
 nnoremap <Leader>y ggyG
-" Save faster
-nnoremap <LocalLeader>w :w<cr>
-" Quit faster
-nnoremap <LocalLeader>q :q<cr>
-" Save & quit faster
-nnoremap <LocalLeader>wq :wq<cr>
-" Zoom split
-map  <C-w>z <C-w>\|<C-w>_
 " }}}
 
 " Splits the right way. {{{
