@@ -30,7 +30,7 @@ export HISTFILE="$HOME/.bash_history"
 
 # fzf
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --follow --hidden --glob=\!.git'
 
 # bash aliases
 [ -f $HOME/.bash_aliases ] && . $HOME/.bash_aliases
