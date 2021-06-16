@@ -47,6 +47,8 @@ set -o vi
 bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
 
+# direnv
+eval "$(direnv hook bash)"
+
 # reload bashrc
 alias reload="source $HOME/.bashrc"
-
