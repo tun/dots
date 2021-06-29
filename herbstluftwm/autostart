@@ -133,7 +133,6 @@ hc set tree_style '╾│ ├└╼─┐'
 hc spawn albert
 hc spawn picom -b --dbus
 hc spawn xmodmap ~/.Xmodmap
-hc spawn conky
 
 # shortcut keys to launch stuff
 [ -f $HOME/.config/herbstluftwm/shortcuts.sh ] && . $HOME/.config/herbstluftwm/shortcuts.sh
