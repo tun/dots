@@ -11,7 +11,6 @@ set noswapfile
 set nobackup
 set hidden
 set lazyredraw
-"set nottyfast
 set backspace=indent,eol,start
 set mouse=nvi
 

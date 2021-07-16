@@ -17,9 +17,10 @@ function! PackagerInit() abort
   call packager#add('tpope/vim-surround')
   " Colorschemes
   call packager#add('challenger-deep-theme/vim', {'name': 'challenger-deep'})
-  " Language pack 
+  " Development
   call packager#add('sheerun/vim-polyglot')
   call packager#add('slashmili/alchemist.vim')
+  call packager#add('dense-analysis/ale')
   " Git
   call packager#add('tpope/vim-fugitive')
   call packager#add('junegunn/gv.vim')
@@ -29,9 +30,8 @@ function! PackagerInit() abort
   " }}}
   " Opt plugins {{{
   " NOTE: use :packloadall to load these plugins.
-  call packager#add('dense-analysis/ale')
-  call packager#add('editorconfig/editorconfig-vim', 
-		\ {'name': 'editorconfig', 'type': 'opt'})
+  call packager#add('editorconfig/editorconfig-vim',
+        \ {'name': 'editorconfig', 'type': 'opt'})
   " }}}
 endfunction
 
@@ -55,7 +55,7 @@ endif
 " FZF {{{
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0
-	  \| autocmd BufLeave <buffer> set laststatus=2
+      \| autocmd BufLeave <buffer> set laststatus=2
 nnoremap <silent> <leader>/ :execute 'Ag ' . input('Search: ')<CR>
 command! CommandHistory call fzf#vim#command_history()
 command! SearchHistory call fzf#vim#search_history()
@@ -63,12 +63,19 @@ command! SearchHistory call fzf#vim#search_history()
 
 " ALE {{{
 let g:ale_linters = {
-	  \   'elixir': ['credo'],
-	  \}
+      \	  'sh': ['shellcheck'],
+      \	  'elixir': ['credo', 'mix'],
+      \	  'python': ['pyflakes'],
+      \		'vim': ['vint']
+      \}
 
 let g:ale_fixers = {
-	  \   'elixir': ['mix_format'],
-	  \}
+      \	  'sh': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'elixir': ['mix_format', 'remove_trailing_lines', 'trim_whitespace'],
+      \	  'python': ['add_blank_lines_for_python_control_statements',
+      \   	'remove_trailing_lines', 'trim_whitespace','yapf'],
+      \	  'vim': ['remove_trailing_lines', 'trim_whitespace']
+      \}
 
 let g:ale_completion_enabled = 1
 let g:ale_sign_error = '✘'
@@ -80,6 +87,7 @@ highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
 let g:ale_linters_explicit = 1
 let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
+let g:ale_sh_shell_default_shell='bash'
 "}}}
 
 " Git {{{
@@ -96,4 +104,3 @@ nmap <leader>gj <plug>(signify-next-hunk)
 nmap <leader>gk <plug>(signify-prev-hunk)
 " }}}
 " }}}
-
