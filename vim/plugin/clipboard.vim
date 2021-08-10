@@ -1,4 +1,3 @@
-" vim: nocp fen fdm=marker fdl=1 tw=78 cc=78 noet
 " Clipboard {{{
 if has("unix") && has("clipboard")
 	let s:uname = system("uname -s")

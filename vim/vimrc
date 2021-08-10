@@ -14,17 +14,6 @@ set lazyredraw
 set backspace=indent,eol,start
 set mouse=nvi
 
-filetype plugin indent on
-syntax enable
-
-" Persistent undo {{{
-set undofile
-if empty(glob("~/.vim/undo"))
-	call mkdir($HOME . "/.vim/undo", "p")
-endif
-set undodir=~/.vim/undo
-" }}}
-
 " Key maps {{{
 nnoremap ; :
 "let mapleader = "\\"
@@ -34,17 +23,10 @@ map <LocalLeader>, :tabnew $MYVIMRC<cr>
 map Q gq
 " Make Y consistent with C and D.
 nnoremap Y y$
-" Fold navigation
-nnoremap <tab> zj
-nnoremap <S-tab> zk
 " Copy whole file
 nnoremap <Leader>y ggyG
 " }}}
 
-" Splits the right way. {{{
-set splitbelow
-set splitright
-" }}}
 
 " Tabs {{{
 set noexpandtab
@@ -60,28 +42,10 @@ set autoindent
 set copyindent
 set preserveindent
 set linebreak
-set nowrap
 " }}}
 
-" Search {{{
-set hlsearch
-set ignorecase
-set incsearch
-set showmatch
-set smartcase
-" }}}
-
-" Folds {{{
-set foldcolumn=0
-set foldenable
-set foldlevel=1
-set foldmethod=indent
-" }}}
 
 " Wildmenu {{{
-set path+=**
-set wildmenu
-set wildmode=list:full
 set wildignore+=*.png,*.jpg,*.jpeg,*.gif
 set wildignore+=__init__.py,*.pyc
 set wildignore+=deps,_build,rel
@@ -95,6 +59,4 @@ set shortmess=aIOt
 set showtabline=1
 set timeoutlen=500
 set visualbell t_vb=
-" disable netrw plugin
-let g:loaded_netrwPlugin = 0
 " }}}

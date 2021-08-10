@@ -1,9 +1,12 @@
-" vim: nocp fen fdm=marker fdl=1 tw=78 cc=78 noet
-" Packages & plugins {{{
+if has('nvim')
+	finish
+endif
+
+" Packages & plugins
 function! PackagerInit() abort
   packadd vim-packager
   call packager#init({'window_cmd': 'new'})
-  " Default plugins {{{
+  " Default plugins
   call packager#add('andymass/vim-matchup')
   call packager#add('haya14busa/is.vim')
   call packager#add('jiangmiao/auto-pairs')
@@ -27,41 +30,37 @@ function! PackagerInit() abort
   call packager#add('mhinz/vim-signify')
   " Extras
   call packager#add('kshenoy/vim-signature')
-  " }}}
-  " Opt plugins {{{
+  "
+  " Opt plugins
   " NOTE: use :packloadall to load these plugins.
   call packager#add('editorconfig/editorconfig-vim',
         \ {'name': 'editorconfig', 'type': 'opt'})
-  " }}}
+  "
 endfunction
 
-" Package management {{{
+" Package management
 command! PackagerInstall call PackagerInit() | call packager#install({ 'on_finish': 'quitall' })
 command! -bang PackagerUpdate call PackagerInit() | call packager#update({ 'force_hooks': '<bang>' })
 command! PackagerClean call PackagerInit() | call packager#clean()
 command! PackagerStatus call PackagerInit() | call packager#status()
-" }}}
 
-" Install vim-packager {{{
+" Install vim-packager
 if empty(glob('~/.vim/pack/packager/opt/vim-packager'))
   silent !git clone https://github.com/kristijanhusak/vim-packager ~/.vim/pack/packager/opt/vim-packager
   :PackagerInstall
 endif
-" }}}
-" }}}
 
-" Plugin settings & key maps " {{{
-
-" FZF {{{
+" Plugin settings & key maps {{{
+" FZF
+let g:fzf_layout = { 'down': '40%' }
 autocmd! FileType fzf
 autocmd  FileType fzf set laststatus=0
-      \| autocmd BufLeave <buffer> set laststatus=2
-nnoremap <silent> <leader>/ :execute 'Ag ' . input('Search: ')<CR>
+      \| autocmd BufLeave <buffer> set laststatus=0
+nnoremap <silent> <leader>/ :execute 'Rg ' . input('Search: ')<CR>
 command! CommandHistory call fzf#vim#command_history()
 command! SearchHistory call fzf#vim#search_history()
-" }}}
 
-" ALE {{{
+" ALE
 let g:ale_linters = {
       \	  'sh': ['shellcheck'],
       \	  'elixir': ['credo', 'mix'],
@@ -88,19 +87,16 @@ let g:ale_linters_explicit = 1
 let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 let g:ale_sh_shell_default_shell='bash'
-"}}}
 
-" Git {{{
+" Git
 noremap <silent> <Leader>gd :Gvdiff<CR>
 noremap <silent> <Leader>gs :Gstatus<CR>
 noremap <silent> <Leader>gb :Gblame<CR>
 noremap <silent> <Leader>gr :SignifyRefresh<CR>
 noremap <silent> <Leader>gp :Dispatch git push<CR>
-" }}}
 
-" Signify {{{
+" Signify
 let g:signify_vcs_list = ['git', 'hg']
 nmap <leader>gj <plug>(signify-next-hunk)
 nmap <leader>gk <plug>(signify-prev-hunk)
-" }}}
 " }}}
