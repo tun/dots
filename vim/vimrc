@@ -9,7 +9,6 @@ set secure
 set modeline
 set noswapfile
 set nobackup
-set hidden
 set lazyredraw
 set backspace=indent,eol,start
 set mouse=nvi
