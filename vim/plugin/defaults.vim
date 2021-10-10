@@ -4,8 +4,11 @@ let g:loaded_netrwPlugin = 0
 filetype plugin indent on
 syntax enable
 
-set mouse=nvi
 set path+=**
+
+set hidden
+set noswapfile
+
 set wildmenu
 set wildmode=list:full
 
@@ -14,6 +17,8 @@ if exists('+termguicolors')
 	let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 	set termguicolors
 endif
+
+set mouse=nvi
 
 " Splits the right way. {{{
 set splitbelow
@@ -51,5 +56,6 @@ set smartcase
 
 set fileformat=unix
 set formatoptions-=cro
+set formatoptions+=j
 set shortmess=aIOt
 set timeoutlen=500
