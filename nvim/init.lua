@@ -19,7 +19,7 @@ paq 'junegunn/fzf'
 paq 'junegunn/fzf.vim'
 paq 'jiangmiao/auto-pairs' 
 paq 'mattn/emmet-vim'
-paq 'SirVer/ultisnips'
+paq 'dcampos/nvim-snippy'
 paq 'honza/vim-snippets'
 paq 'tpope/vim-surround'
 -- Language support
