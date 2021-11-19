@@ -36,8 +36,3 @@ nnoremap <LocalLeader>wq :wq<cr>
 nnoremap <LocalLeader>bd :bd<cr>
 " Zoom split
 map  <C-w>z <C-w>\|<C-w>_
-
-nnoremap <CR> :Buffers<CR>
-nnoremap <Leader>c :Colors<CR>
-nnoremap <Leader><CR> :Files<CR>
-nnoremap <LocalLeader><CR> :GFiles<CR>

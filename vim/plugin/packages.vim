@@ -10,7 +10,7 @@ function! PackagerInit() abort
   call packager#add('andymass/vim-matchup')
   call packager#add('haya14busa/is.vim')
   call packager#add('jiangmiao/auto-pairs')
-  call packager#add('junegunn/fzf', {'do': './install --all && ln -s $(pwd) ~/.fzf'})
+  call packager#add('junegunn/fzf', {'do': 'fzf#install()'})
   call packager#add('junegunn/fzf.vim')
   call packager#add('tpope/vim-commentary')
   call packager#add('tpope/vim-dispatch')
@@ -51,15 +51,6 @@ if empty(glob('~/.vim/pack/packager/opt/vim-packager'))
 endif
 
 " Plugin settings & key maps {{{
-" FZF
-let g:fzf_layout = { 'down': '40%' }
-autocmd! FileType fzf
-autocmd  FileType fzf set laststatus=0
-      \| autocmd BufLeave <buffer> set laststatus=0
-nnoremap <silent> <leader>/ :execute 'Rg ' . input('Search: ')<CR>
-command! CommandHistory call fzf#vim#command_history()
-command! SearchHistory call fzf#vim#search_history()
-
 " ALE
 let g:ale_linters = {
       \	  'sh': ['shellcheck'],

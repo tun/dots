@@ -8,6 +8,7 @@ set path+=**
 
 set hidden
 set noswapfile
+set nobackup
 
 set wildmenu
 set wildmode=list:full
