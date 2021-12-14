@@ -12,16 +12,34 @@ if fn.empty(fn.glob(paq_install_path)) > 0 then
 end
 
 vim.cmd 'packadd paq-nvim'         -- Load package
-local paq = require'paq-nvim'.paq  -- Import module and bind `paq` function
-paq{'savq/paq-nvim', opt=true}     -- Let Paq manage itself
 
-paq 'junegunn/fzf'
-paq 'junegunn/fzf.vim'
-paq 'vimwiki/vimwiki'
-paq 'jiangmiao/auto-pairs' 
-paq 'mattn/emmet-vim'
+require "paq" {
+  "savq/paq-nvim";
+  "junegunn/fzf";
+  "junegunn/fzf.vim";
+  "vimwiki/vimwiki";
+  "jiangmiao/auto-pairs";
+  "mattn/emmet-vim";
+  "dcampos/nvim-snippy";
+  "honza/vim-snippets";
+  "tpope/vim-commentary";
+  "tpope/vim-surround";
+  -- Language support
+  "sheerun/vim-polyglot";
+  "mcfiredrill/vim-liquidsoap";
+  "slashmili/alchemist.vim";
+  "tpope/vim-endwise";
+  "dense-analysis/ale";
+  -- Git support
+  "tpope/vim-fugitive";
+  "mhinz/vim-signify";
+  -- Colorschemes
+  {"challenger-deep-theme/vim", as="challenger-deep"};
+  "ghifarit53/tokyonight-vim";
+  "pineapplegiant/spaceduck";
 
-paq 'dcampos/nvim-snippy'
+}
+
 local snippy = require("snippy")
 snippy.setup({
     mappings = {
@@ -35,22 +53,6 @@ snippy.setup({
     },
   })
 
-paq 'honza/vim-snippets'
-paq 'tpope/vim-commentary'
-paq 'tpope/vim-surround'
--- Language support
-paq 'sheerun/vim-polyglot'
-paq 'mcfiredrill/vim-liquidsoap'
-paq 'slashmili/alchemist.vim'
-paq 'tpope/vim-endwise'
-paq 'dense-analysis/ale'
--- Git support
-paq 'tpope/vim-fugitive'
-paq 'mhinz/vim-signify'
--- Colorschemes
-paq {'challenger-deep-theme/vim', as="challenger-deep"}
-paq 'ghifarit53/tokyonight-vim'
-paq 'pineapplegiant/spaceduck'
 
 if fn.empty(fn.glob(paq_plugins_path)) > 0 then
   vim.cmd 'PaqInstall'
