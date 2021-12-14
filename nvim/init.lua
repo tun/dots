@@ -40,6 +40,10 @@ require "paq" {
 
 }
 
+if fn.empty(fn.glob(paq_plugins_path)) > 0 then
+  vim.cmd 'PaqInstall'
+end
+
 local snippy = require("snippy")
 snippy.setup({
     mappings = {
@@ -52,11 +56,6 @@ snippy.setup({
       },
     },
   })
-
-
-if fn.empty(fn.glob(paq_plugins_path)) > 0 then
-  vim.cmd 'PaqInstall'
-end
 
 vim.o.laststatus = 0 
 vim.o.background = "dark"
