@@ -17,13 +17,30 @@ paq{'savq/paq-nvim', opt=true}     -- Let Paq manage itself
 
 paq 'junegunn/fzf'
 paq 'junegunn/fzf.vim'
+paq 'vimwiki/vimwiki'
 paq 'jiangmiao/auto-pairs' 
 paq 'mattn/emmet-vim'
+
 paq 'dcampos/nvim-snippy'
+local snippy = require("snippy")
+snippy.setup({
+    mappings = {
+      is = {
+        ["<Tab>"] = "expand_or_advance",
+        ["<S-Tab>"] = "previous",
+      },
+      nx = {
+        ["<leader>x"] = "cut_text",
+      },
+    },
+  })
+
 paq 'honza/vim-snippets'
+paq 'tpope/vim-commentary'
 paq 'tpope/vim-surround'
 -- Language support
 paq 'sheerun/vim-polyglot'
+paq 'mcfiredrill/vim-liquidsoap'
 paq 'slashmili/alchemist.vim'
 paq 'tpope/vim-endwise'
 paq 'dense-analysis/ale'
