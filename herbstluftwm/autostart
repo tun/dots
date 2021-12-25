@@ -15,11 +15,13 @@ hc keyunbind --all
 Mod=Mod1    # Use alt as the main modifier
 #Mod=Mod4   # Use the super key as the main modifier
 
-case $XDG_SESSION_DESKTOP in
+case "$XDG_SESSION_DESKTOP" in
     xfce )
         hc keybind $Mod-Shift-q spawn xfce4-session-logout
         ;;
     herbstluftwm )
+        # Starts Gnome Polkit
+        hc spawn /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
         hc keybind $Mod-Shift-q quit
         ;;
 esac
@@ -104,10 +106,10 @@ hc keybind $Mod-c cycle
 hc keybind $Mod-i jumpto urgent
 
 # THEME
-THEME_BACKGROUND="#0f111b"
-THEME_ACTIVE_COLOR="#5ccc96"
+THEME_BACKGROUND_COLOR="#0f111b"
+THEME_ACTIVE_COLOR="#686f9a"
 THEME_NORMAL_COLOR="#00a3cc"
-THEME_URGENT_COLOR="#686f9a"
+THEME_URGENT_COLOR="#f2ce00"
 hc attr theme.tiling.reset 1
 hc attr theme.floating.reset 1
 
@@ -117,19 +119,19 @@ hc set frame_bg_normal_color $THEME_BACKGROUND_COLOR
 hc set frame_bg_active_color $THEME_BACKGROUND_COLOR
 hc set frame_border_width 2
 hc set always_show_frame on
-hc set frame_bg_transparent off
+hc set frame_bg_transparent on
 hc set frame_transparent_width 0
 
 hc attr theme.active.color $THEME_ACTIVE_COLOR
 hc attr theme.normal.color $THEME_BACKGROUND_COLOR
 hc attr theme.urgent.color $THEME_URGENT_COLOR
 hc attr theme.inner_width 0
-hc attr theme.border_width 4
-hc attr theme.floating.border_width 8
+hc attr theme.border_width 2
+hc attr theme.floating.border_width 2
 hc attr theme.floating.outer_width 0
-hc attr theme.active.inner_color $THEME_BACKGROUND_COLOR
-hc attr theme.normal.inner_color $THEME_BACKGROUND_COLOR
-hc attr theme.urgent.inner_color $THEME_BACKGROUND_COLOR
+hc attr theme.active.inner_color $THEME_ACTIVE_COLOR
+hc attr theme.normal.inner_color $THEME_NORMAL_COLOR
+hc attr theme.urgent.inner_color $THEME_URGENT_COLOR
 # copy inner color to outer_color
 for state in active urgent normal ; do
     hc substitute C theme.${state}.inner_color \
@@ -141,8 +143,8 @@ hc attr theme.background_color $THEME_BACKGROUND_COLOR
 hc set smart_window_surroundings off
 hc set smart_frame_surroundings on
 
-hc set window_gap 8
-hc set frame_gap 10
+hc set window_gap 16
+hc set frame_gap 8
 hc set frame_padding 0
 
 hc set mouse_recenter_gap 0
@@ -166,9 +168,6 @@ hc rule instance='galculator' floating=on focus=on
 
 hc set tree_style '╾│ ├└╼─┐'
 
-# multi monitor setup
-[ -f $HOME/.config/herbstluftwm/monitors.sh ] && . $HOME/.config/herbstluftwm/monitors.sh
-
 # autostart
 hc spawn picom -b -C #--dbus
 hc spawn ulauncher --hide-window
@@ -177,6 +176,9 @@ hc spawn hsetroot -solid $THEME_BACKGROUND_COLOR
 
 # shortcut keys to launch stuff
 [ -f $HOME/.config/herbstluftwm/shortcuts.sh ] && . $HOME/.config/herbstluftwm/shortcuts.sh
+
+# multi monitor setup
+[ -f $HOME/.config/herbstluftwm/monitors.sh ] && . $HOME/.config/herbstluftwm/monitors.sh
 
 # local config
 [ -f $HOME/.herbstluftwm_local.sh ] && . $HOME/.herbstluftwm_local.sh
