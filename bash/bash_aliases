@@ -1,5 +1,7 @@
 # vim ft=sh
 alias g="git"
+__git_complete g __git_main
+
 alias h="history"
 alias j="jobs -l"
 alias ls="ls -h --color=always"
