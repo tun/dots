@@ -1,4 +1,8 @@
 # vim ft=sh
+if [[ -f "/usr/share/git/completion/git-completion.bash" ]]; then
+	. /usr/share/git/completion/git-completion.bash
+fi
+
 alias g="git"
 __git_complete g __git_main
 
