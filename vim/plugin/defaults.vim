@@ -9,6 +9,7 @@ set path+=**
 set hidden
 set noswapfile
 set nobackup
+set noruler
 
 set wildmenu
 set wildmode=list:full
@@ -59,4 +60,3 @@ set fileformat=unix
 set formatoptions-=cro
 set formatoptions+=j
 set shortmess=aIOt
-set timeoutlen=500

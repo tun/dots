@@ -11,7 +11,7 @@ command! SearchHistory call fzf#vim#search_history()
 
 nnoremap <silent> <leader>/ :execute 'Rg ' . input('Search: ')<CR>
 
-nnoremap <CR> :Buffers<CR>
+nnoremap <Leader><CR> :GFiles<CR>
+nnoremap <Leader>f :Files<CR>
 nnoremap <Leader>c :Colors<CR>
-nnoremap <Leader><CR> :Files<CR>
-nnoremap <LocalLeader><CR> :GFiles<CR>
+nnoremap <CR> :Buffers<CR>

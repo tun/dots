@@ -7,13 +7,10 @@
 set exrc
 set secure
 set modeline
-set noswapfile
-set nobackup
 set lazyredraw
 set backspace=indent,eol,start
-set mouse=nvi
 
-" Key maps {{{
+" Key maps
 nnoremap ; :
 "let mapleader = "\\"
 let maplocalleader = "\<Space>"
@@ -24,38 +21,32 @@ map Q gq
 nnoremap Y y$
 " Copy whole file
 nnoremap <Leader>y ggyG
-" }}}
+"
 
 
-" Tabs {{{
+" Tabs
 set noexpandtab
 set shiftround
 set shiftwidth=4
 set smarttab
 set softtabstop=4
 set tabstop=4
-" }}}
+"
 
-" Indentation {{{
+" Indentation
 set autoindent
 set copyindent
 set preserveindent
 set linebreak
-" }}}
-
-
-" Wildmenu {{{
+"
+" Wildmenu
 set wildignore+=*.png,*.jpg,*.jpeg,*.gif
 set wildignore+=__init__.py,*.pyc
 set wildignore+=deps,_build,rel
-" }}}
+"
 
-" Misc {{{
-set fileformat=unix
-set formatoptions-=cro
+" Misc
 set iskeyword+=-
-set shortmess=aIOt
 set showtabline=1
-set timeoutlen=500
 set visualbell t_vb=
-" }}}
+"

@@ -72,7 +72,7 @@ function! BuildStatusLine()
 	let statusline.=' %{StatusPaste()} '
 	let statusline.='%#CurrentMode# %Y '
 	let statusline.='%#CurrentProject# %{StatusWorkingDir()} '
-	let statusline.='%#GitBranch# %{fugitive#head()} '
+	let statusline.='%#GitBranch# %{FugitiveHead()} '
 	return statusline
 endfunction
 

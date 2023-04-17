@@ -19,7 +19,7 @@ function! PackagerInit() abort
   call packager#add('tpope/vim-repeat')
   call packager#add('tpope/vim-surround')
   " Colorschemes
-  call packager#add('challenger-deep-theme/vim', {'name': 'challenger-deep'})
+  call packager#add('pineapplegiant/spaceduck')
   " Development
   call packager#add('sheerun/vim-polyglot')
   call packager#add('slashmili/alchemist.vim')
