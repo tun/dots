@@ -1,5 +1,6 @@
 " disable netrw plugin
-let g:loaded_netrwPlugin = 0
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
 
 filetype plugin indent on
 syntax enable

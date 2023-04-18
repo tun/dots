@@ -1,72 +1,25 @@
 --[[
-  Plugins
-]]--
+-- Neovim config
+--]]
 
-local fn = vim.fn
+local paq_install_path = vim.fn.stdpath('data') .. '/site/pack/paqs/opt/paq-nvim'
 
-local paq_install_path = fn.stdpath('data')..'/site/pack/paqs/opt/paq-nvim'
-local paq_plugins_path = fn.stdpath('data')..'/site/pack/paqs/start'
-
-if fn.empty(fn.glob(paq_install_path)) > 0 then
-  vim.api.nvim_command('!git clone https://github.com/savq/paq-nvim.git '..paq_install_path)
-end
-
-vim.cmd 'packadd paq-nvim'         -- Load package
-
-require "paq" {
-  "savq/paq-nvim";
-  "junegunn/fzf";
-  "junegunn/fzf.vim";
-  "vimwiki/vimwiki";
-  "jiangmiao/auto-pairs";
-  "mattn/emmet-vim";
-  "dcampos/nvim-snippy";
-  "honza/vim-snippets";
-  "tpope/vim-commentary";
-  "tpope/vim-surround";
-  -- Language support
-  "sheerun/vim-polyglot";
-  "mcfiredrill/vim-liquidsoap";
-  "slashmili/alchemist.vim";
-  "tpope/vim-endwise";
-  "dense-analysis/ale";
-  -- Git support
-  "tpope/vim-fugitive";
-  "mhinz/vim-signify";
-  -- Colorschemes
-  {"challenger-deep-theme/vim", as="challenger-deep"};
-  "ghifarit53/tokyonight-vim";
-  "pineapplegiant/spaceduck";
-
-}
-
-if fn.empty(fn.glob(paq_plugins_path)) > 0 then
+-- Install Paq and all defined packages at first run
+if vim.fn.isdirectory(paq_install_path) == 0 then
+  vim.api.nvim_command('!git clone https://github.com/savq/paq-nvim.git ' .. paq_install_path)
+  vim.cmd 'packadd paq-nvim'
+  require('plugins')
   vim.cmd 'PaqInstall'
+else
+  -- Load packages and its configurations
+  require('plugins')
+  require('config')
 end
 
-local snippy = require("snippy")
-snippy.setup({
-    mappings = {
-      is = {
-        ["<Tab>"] = "expand_or_advance",
-        ["<S-Tab>"] = "previous",
-      },
-      nx = {
-        ["<leader>x"] = "cut_text",
-      },
-    },
-  })
+-- Load shared vim config
+vim.opt.runtimepath:append('~/.vim')
 
-vim.o.laststatus = 0 
-vim.o.background = "dark"
-vim.o.termguicolors = true
-vim.g['tokyonight_style'] = 'night'
-vim.g['tokyonight_enable_italic'] = 1
-vim.g['tokyonight_transparent_background'] = 1
-
-vim.cmd("silent! colorscheme tokyonight")
-
-vim.cmd('autocmd BufWritePost $MYVIMRC luafile $MYVIMRC')
-vim.cmd('autocmd VimResized * :wincmd =')
-
-vim.opt.runtimepath:append("~/.vim")
+-- Source .vimrc file
+if vim.fn.filereadable('~/.vimrc') == 1 then
+  vim.cmd('source ~/.vimrc')
+end

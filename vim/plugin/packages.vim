@@ -1,5 +1,5 @@
 if has('nvim')
-	finish
+  finish
 endif
 
 " Packages & plugins

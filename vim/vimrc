@@ -23,7 +23,6 @@ nnoremap Y y$
 nnoremap <Leader>y ggyG
 "
 
-
 " Tabs
 set noexpandtab
 set shiftround
@@ -39,6 +38,7 @@ set copyindent
 set preserveindent
 set linebreak
 "
+
 " Wildmenu
 set wildignore+=*.png,*.jpg,*.jpeg,*.gif
 set wildignore+=__init__.py,*.pyc
