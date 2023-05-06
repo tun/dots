@@ -19,7 +19,11 @@ end
 -- Load shared vim config
 vim.opt.runtimepath:append('~/.vim')
 
--- Source .vimrc file
-if vim.fn.filereadable('~/.vimrc') == 1 then
-  vim.cmd('source ~/.vimrc')
+-- [[
+-- Loads .nvim.lua file
+-- ]]
+local nvimrc = vim.fn.glob('~/.nvim.lua')
+
+if vim.fn.filereadable(nvimrc) == 1 then
+  vim.cmd('luafile ' .. nvimrc)
 end

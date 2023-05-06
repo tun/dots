@@ -27,7 +27,7 @@ require 'paq' {
   'mhinz/vim-signify';
   -- Colorschemes
   {'challenger-deep-theme/vim', as='challenger-deep'};
-  {'folke/tokyonight.nvim'};
+  'folke/tokyonight.nvim';
   'EdenEast/nightfox.nvim';
   'pineapplegiant/spaceduck';
 }

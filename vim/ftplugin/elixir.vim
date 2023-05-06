@@ -13,6 +13,6 @@ augroup	Elixir
 	autocmd!
 
 	if exists('g:tun_elixir_mix_format')
-		autocmd BufWritePre *.ex,*.exs silent! :%!mix format -
+		autocmd BufWritePre *.ex,*.exs :MixFormat
 	endif
 augroup END

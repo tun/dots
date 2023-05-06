@@ -11,7 +11,7 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 " Local leader
-let maplocalleader = " "
+let maplocalleader = ' '
 " Toggle line numbers:
 nnoremap <silent> <LocalLeader>n :set number! relativenumber!<CR>
 " Switch to last used buffer:
