@@ -1,5 +1,6 @@
-command! MixFormat silent! :%!mix format -
+command! MixFormat silent! :!mix format %
 
+setlocal autoread
 setlocal formatprg=mix\ format\ -
 setlocal cursorline
 setlocal number
@@ -13,6 +14,6 @@ augroup	Elixir
 	autocmd!
 
 	if exists('g:tun_elixir_mix_format')
-		autocmd BufWritePre *.ex,*.exs :MixFormat
+		autocmd BufWritePost *.ex,*.exs :MixFormat
 	endif
 augroup END
