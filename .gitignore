@@ -1,3 +1,7 @@
+# vim
 vim/.netrwhist
 vim/pack
 vim/undo
+
+# kitty
+kitty/custom.conf
