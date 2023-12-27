@@ -2,6 +2,10 @@
 -- Neovim config
 --]]
 
+if vim.loader then
+  vim.loader.enable()
+end
+
 local paq_install_path = vim.fn.stdpath('data') .. '/site/pack/paqs/opt/paq-nvim'
 
 -- Install Paq and all defined packages at first run
