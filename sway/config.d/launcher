@@ -1,0 +1,5 @@
+### Launchers
+# Filebrowser
+bindsym Mod4+Shift+1 exec nautilus --new-window
+# Web browser
+bindsym Mod4+Shift+2 exec firefox

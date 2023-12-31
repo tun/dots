@@ -1,0 +1,8 @@
+# Make Calculator float
+for_window [app_id="org.gnome.Calculator"] floating enabled
+# File manager float by default
+for_window [app_id="org.gnome.Nautilus"] floating enabled
+# Fix for Firefox sharing indicator
+# First, open about:config, then set privacy.webrtc.legacyGlobalIndicator to false
+for_window [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable
+
