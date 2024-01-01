@@ -51,38 +51,38 @@ if empty(glob('~/.vim/pack/packager/opt/vim-packager'))
 endif
 
 " Plugin settings & key maps {{{
-" ALE
+" ALE settings
 let g:ale_linters = {
       \	  'sh': ['shellcheck'],
-      \	  'elixir': ['credo', 'mix'],
+      \	  'elixir': ['mix_format', 'credo'],
       \	  'python': ['pyflakes'],
       \		'vim': ['vint']
       \}
 
 let g:ale_fixers = {
-      \	  'sh': ['remove_trailing_lines', 'trim_whitespace'],
-      \   'elixir': ['mix_format', 'remove_trailing_lines', 'trim_whitespace'],
-      \	  'python': ['add_blank_lines_for_python_control_statements',
-      \   	'remove_trailing_lines', 'trim_whitespace','yapf'],
-      \	  'vim': ['remove_trailing_lines', 'trim_whitespace']
+      \	  '*': ['remove_trailing_lines', 'trim_whitespace'],
+      \   'elixir': ['mix_format'],
+      \	  'python': ['add_blank_lines_for_python_control_statements',	'yapf']
       \}
 
+set omnifunc=ale#completion#OmniFunc
+
 let g:ale_completion_enabled = 1
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_enter = 1
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_linters_explicit = 1
+let g:ale_sh_shell_default_shell='bash'
 let g:ale_sign_error = '✘'
 let g:ale_sign_warning = '⚠'
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_text_changed = 'never'
+
 highlight ALEErrorSign ctermbg=NONE ctermfg=red
 highlight ALEWarningSign ctermbg=NONE ctermfg=yellow
-let g:ale_linters_explicit = 1
-let g:ale_lint_on_save = 1
-let g:ale_fix_on_save = 1
-let g:ale_sh_shell_default_shell='bash'
 
 " Git
-noremap <silent> <Leader>gd :Gvdiff<CR>
-noremap <silent> <Leader>gs :Gstatus<CR>
-noremap <silent> <Leader>gb :Gblame<CR>
+noremap <silent> <Leader>gs :Git status<CR>
+noremap <silent> <Leader>gb :Git blame<CR>
 noremap <silent> <Leader>gr :SignifyRefresh<CR>
 noremap <silent> <Leader>gp :Dispatch git push<CR>
 

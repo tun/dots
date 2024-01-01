@@ -36,5 +36,3 @@ nnoremap <LocalLeader>wq :wq<cr>
 nnoremap <LocalLeader>bd :bd<cr>
 " Zoom split
 map  <C-w>z <C-w>\|<C-w>_
-" Always paste the last purposeful yank
-nnoremap p "0p
