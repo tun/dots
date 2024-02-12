@@ -1,3 +1,5 @@
+require('config.lspconfig')
 require('config.nvimtree')
 require('config.snippy')
+require('config.treesitter')
 require('config.ui')
