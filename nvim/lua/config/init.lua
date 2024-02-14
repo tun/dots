@@ -1,3 +1,4 @@
+require('config.gitsigns')
 require('config.lspconfig')
 require('config.nvimtree')
 require('config.snippy')
