@@ -1,6 +1,7 @@
 -- [[
 -- LSP Configuration
 -- ]]
+
 local lspconfig = require('lspconfig')
 
 -- Elixir
@@ -12,22 +13,22 @@ lspconfig.elixirls.setup {
 }
 
 -- Python
-lspconfig.pylyzer.setup {}
-lspconfig.ruff_lsp.setup {
-	init_options = {
-		settings = {
-			-- Any extra CLI arguments for `ruff` go here.
-			args = {},
-		}
-	}
+lspconfig.pylyzer.setup {
+	root_dir = function() vim.fn.getcwd() end,
+	single_file_support = true
 }
+
+lspconfig.ruff_lsp.setup {}
+
+-- Ruby / rubocop
+lspconfig.rubocop.setup {}
+lspconfig.ruby_ls.setup {}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '<space>e', function() require('trouble').toggle('document_diagnostics') end)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
@@ -59,3 +60,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		end, opts)
 	end,
 })
+
+-- [[
+-- LSPsaga
+-- ]]
+
+require('lspsaga').setup {}
+
+vim.keymap.set('n', '<f4>', ':Lspsaga term_toggle<cr>')
