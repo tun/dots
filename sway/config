@@ -2,13 +2,15 @@ set $term kitty
 
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
-include "config.d/input"
-include "config.d/launcher"
-include "config.d/keybindings"
-include "config.d/output"
-include "config.d/window_rules"
+include config.d/input
+include config.d/launcher
+include config.d/keybindings
+include config.d/output
+include config.d/window_rules
+
+include /etc/sway/config.d/*
 
 # Custom definitions
-include "config.d/custom"
+include config.d/custom
 
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

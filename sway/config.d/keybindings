@@ -3,6 +3,7 @@
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 set $alt_mod Mod1
+set $alt_right Mod5
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -88,8 +89,8 @@ set $right l
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
-    bindsym Ctrl+Return workspace number 0
-    bindsym Ctrl+Shift+Return move container to workspace number 0
+    bindsym Ctrl+grave workspace number 0
+    bindsym Ctrl+asciitilde move container to workspace number 0
 
     # Toggle show/hide bar
     bindsym Ctrl+Shift+b bar mode toggle
