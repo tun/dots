@@ -5,7 +5,7 @@
 local lspconfig = require('lspconfig')
 
 -- Elixir
-local elixirls_path = vim.fn.glob('~/.asdf/installs/elixir-ls/0.18.0/language_server.sh')
+local elixirls_path = vim.fn.glob('~/.asdf/installs/elixir-ls/0.20.0/language_server.sh')
 
 lspconfig.elixirls.setup {
 	-- Unix
@@ -22,7 +22,7 @@ lspconfig.ruff_lsp.setup {}
 
 -- Ruby / rubocop
 lspconfig.rubocop.setup {}
-lspconfig.ruby_ls.setup {}
+lspconfig.ruby_lsp.setup {}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
