@@ -3,6 +3,7 @@ let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 
 filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
 syntax enable
 
 set path+=**

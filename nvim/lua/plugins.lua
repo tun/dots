@@ -4,22 +4,20 @@
 
 require('paq') {
 	{ 'savq/paq-nvim',                   branch = 'dev' },
-	'junegunn/fzf',
-	'junegunn/fzf.vim',
 	'ibhagwan/fzf-lua',
-	'jiangmiao/auto-pairs',
-	'tpope/vim-commentary',
+	'm4xshen/autoclose.nvim',
 	'tpope/vim-sleuth',
 	'tpope/vim-surround',
 	'tpope/vim-eunuch',
-	'lukas-reineke/indent-blankline.nvim',
+	'shellRaining/hlchunk.nvim',
 	--
 	-- File Explorer
-	'kyazdani42/nvim-web-devicons',
-	'kyazdani42/nvim-tree.lua',
+	'nvim-tree/nvim-web-devicons',
+	'nvim-tree/nvim-tree.lua',
 	--
 	-- Snippets
 	'dcampos/nvim-snippy',
+	'dcampos/cmp-snippy',
 	'honza/vim-snippets',
 	--
 	-- Language support
@@ -32,6 +30,14 @@ require('paq') {
 	'folke/trouble.nvim',
 	'neovim/nvim-lspconfig',
 	'nvimdev/lspsaga.nvim',
+	'soulis-1256/eagle.nvim',
+	--
+	-- Completion
+	'hrsh7th/cmp-nvim-lsp',
+	'hrsh7th/cmp-buffer',
+	'hrsh7th/cmp-path',
+	'hrsh7th/cmp-cmdline',
+	'hrsh7th/nvim-cmp',
 	--
 	-- Git support
 	'tpope/vim-fugitive',
@@ -41,17 +47,36 @@ require('paq') {
 	'akinsho/toggleterm.nvim',
 	--
 	-- Colorschemes
-	'akinsho/horizon.nvim',
-	'maxmx03/fluoromachine.nvim',
-	'tiagovla/tokyodark.nvim',
 	{ 'challenger-deep-theme/vim', as = 'challenger-deep' },
 	{ 'pineapplegiant/spaceduck',  branch = 'dev' },
 }
 
 -- [[
--- Initialize zero config plugins
+-- Initialize zero or minimal config plugins
 -- ]]
-require('ibl').setup {}
+require('autoclose').setup {}
+require('eagle').setup {
+	mouse_mode = true,
+	keyboard_mode = true
+}
+
+require('fzf-lua').setup {
+	'fzf-vim'
+}
+
+require('hlchunk').setup {
+	chunk = {
+		enable = true
+	},
+	indent = {
+		enable = true
+	},
+	line_num = {
+		enable = true
+	}
+}
+
+require('trouble').setup {}
 
 -- [[
 -- Load legacy vim runtimepath

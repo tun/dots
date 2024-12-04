@@ -50,3 +50,8 @@ set iskeyword+=-
 set showtabline=1
 set visualbell t_vb=
 "
+
+" Prettify JSON command
+command! JSONPretty %!python -m json.tool
+" When I forgot to open vim with sudo
+command! ALV w !sudo tee % > /dev/null

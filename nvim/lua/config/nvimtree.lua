@@ -15,6 +15,7 @@ require("nvim-tree").setup {
   filters = {
     dotfiles = true,
     exclude = {
+      '.dockerignore',
       '.github',
       '.gitignore',
       '.nvim.lua'
