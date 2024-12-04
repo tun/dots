@@ -5,3 +5,6 @@ vim/undo
 
 # kitty
 kitty/custom.conf
+
+# sway
+sway/config.d/custom

@@ -1,10 +1,14 @@
-set $term kitty
+set {
+	$term wezterm
+	$alt_term kitty
 
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+	$menu wmenu-run -p "$(hostname)"
+}
 
 include config.d/input
 include config.d/launcher
 include config.d/keybindings
+include config.d/modes
 include config.d/output
 include config.d/window_rules
 

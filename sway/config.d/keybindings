@@ -1,159 +1,153 @@
 ### Key bindings
-# Variables:
-# Logo key. Use Mod1 for Alt.
-set $mod Mod4
-set $alt_mod Mod1
-set $alt_right Mod5
-# Home row direction keys, like vim
-set $left h
-set $down j
-set $up k
-set $right l
-#
-# Basics:
-#
+set {
+    $super Mod4
+    $mod $super
+
+    $alt_mod Mod1
+    $alt_right Mod5
+
+    # Home row direction keys, like vim
+    $left h
+    $down j
+    $up k
+    $right l
+}
+
+bindsym --to-code {
     # Start a terminal
-    bindsym Mod1+Return exec $term
-
-    # Kill focused window
-    bindsym $mod+Shift+q kill
-
-    # Screenshot
-    bindsym $mod+Print exec grim -g "$(slurp -d)" - | wl-copy -t image/png
+    Mod1+Return exec $term
 
     # Start your launcher
-    bindsym Mod1+f2 exec $menu
+    $alt_mod+f2 exec $menu
 
-    # Drag floating windows by holding down $mod and left mouse button.
-    # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
-    floating_modifier $mod normal
+    # Kill focused window
+    $mod+Shift+q kill
 
     # Reload the configuration file
-    bindsym $mod+Shift+c reload
+    $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Ctrl+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
-#
-# Moving around:
-#
+    $mod+Ctrl+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
+
     # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
+    $mod+$left focus left
+    $mod+$down focus down
+    $mod+$up focus up
+    $mod+$right focus right
     # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+    $mod+Left focus left
+    $mod+Down focus down
+    $mod+Up focus up
+    $mod+Right focus right
 
     # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
+    $mod+Shift+$left move left
+    $mod+Shift+$down move down
+    $mod+Shift+$up move up
+    $mod+Shift+$right move right
     # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
-#
-# Workspaces:
-#
+    $mod+Shift+Left move left
+    $mod+Shift+Down move down
+    $mod+Shift+Up move up
+    $mod+Shift+Right move right
+
+		#
+		# Workspaces:
+		#
     # Switch to workspace
-    bindsym Ctrl+1 workspace number 1
-    bindsym Ctrl+2 workspace number 2
-    bindsym Ctrl+3 workspace number 3
-    bindsym Ctrl+4 workspace number 4
-    bindsym Ctrl+5 workspace number 5
-    bindsym Ctrl+6 workspace number 6
-    bindsym Ctrl+7 workspace number 7
-    bindsym Ctrl+8 workspace number 8
-    bindsym Ctrl+9 workspace number 9
-    bindsym Ctrl+0 workspace number 10
+    Ctrl+1 workspace number 1
+    Ctrl+2 workspace number 2
+    Ctrl+3 workspace number 3
+    Ctrl+4 workspace number 4
+    Ctrl+5 workspace number 5
+    Ctrl+6 workspace number 6
+    Ctrl+7 workspace number 7
+    Ctrl+8 workspace number 8
+    Ctrl+9 workspace number 9
+    Ctrl+0 workspace number 10
     
     # Move focused container to workspace
-    bindsym Ctrl+Shift+1 move container to workspace number 1
-    bindsym Ctrl+Shift+2 move container to workspace number 2
-    bindsym Ctrl+Shift+3 move container to workspace number 3
-    bindsym Ctrl+Shift+4 move container to workspace number 4
-    bindsym Ctrl+Shift+5 move container to workspace number 5
-    bindsym Ctrl+Shift+6 move container to workspace number 6
-    bindsym Ctrl+Shift+7 move container to workspace number 7
-    bindsym Ctrl+Shift+8 move container to workspace number 8
-    bindsym Ctrl+Shift+9 move container to workspace number 9
-    bindsym Ctrl+Shift+0 move container to workspace number 10
+    Ctrl+Shift+1 move container to workspace number 1
+    Ctrl+Shift+2 move container to workspace number 2
+    Ctrl+Shift+3 move container to workspace number 3
+    Ctrl+Shift+4 move container to workspace number 4
+    Ctrl+Shift+5 move container to workspace number 5
+    Ctrl+Shift+6 move container to workspace number 6
+    Ctrl+Shift+7 move container to workspace number 7
+    Ctrl+Shift+8 move container to workspace number 8
+    Ctrl+Shift+9 move container to workspace number 9
+    Ctrl+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
-    bindsym Ctrl+grave workspace number 0
-    bindsym Ctrl+asciitilde move container to workspace number 0
+    Ctrl+grave workspace number 0
+    Ctrl+asciitilde move container to workspace number 0
 
     # Toggle show/hide bar
-    bindsym Ctrl+Shift+b bar mode toggle
-#
-# Layout stuff:
-#
+    Ctrl+Shift+b bar mode toggle
+
+		#
+		# Layout stuff:
+		#
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+Shift+b splith
-    bindsym $mod+Shift+v splitv
+    $mod+Shift+b splith
+    $mod+Shift+v splitv
 
     # Switch the current container between different layout styles
-    bindsym $mod+Shift+s layout stacking
-    bindsym $mod+Shift+w layout tabbed
-    bindsym $mod+Shift+e layout toggle split
+    $mod+Shift+s layout stacking
+    $mod+Shift+w layout tabbed
+    $mod+Shift+e layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+    $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
-    bindsym $mod+Shift+space floating toggle
+    $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
-    bindsym $mod+space focus mode_toggle
+    $mod+space focus mode_toggle
 
     # Move focus to the parent container
-    bindsym $mod+a focus parent
-#
-# Scratchpad:
-#
+    $mod+a focus parent
+
+    #
+    # Scratchpad:
+		#
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
 
     # Move the currently focused window to the scratchpad
-    bindsym $mod+Shift+minus move scratchpad
+    $mod+Shift+minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
-    bindsym $mod+Ctrl+minus scratchpad show
-#
-# Resizing containers:
-#
-mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $down resize grow height 10px
-    bindsym $up resize shrink height 10px
-    bindsym $right resize grow width 10px
+    $mod+Ctrl+minus scratchpad show
 
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Down resize grow height 10px
-    bindsym Up resize shrink height 10px
-    bindsym Right resize grow width 10px
+    #
+    # Screenshots:
+		#
+    # Capture entire screen to clipboard
+    Print exec grim - | wl-copy -t image/png
+    # Grab selection to clipboard
+    Shift+Print exec grim -g "$(slurp -d)" - | wl-copy -t image/png
+    Ctrl+Shift+Print exec grim -g "$(slurp -d)" - | swappy -f -
 
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
+    #
+    # Media keys:
+		#
+    # Pulse Audio Controls
+    XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+    XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+    XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+    XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+    XF86MonBrightnessDown exec brightnessctl set 5%-
+    XF86MonBrightnessUp exec brightnessctl set 5%+
+    # Playback keys:
+    XF86AudioPlay exec playerctl play-pause
+    XF86AudioNext exec playerctl next
+    XF86AudioPrev exec playerctl previous
 }
-bindsym $mod+r mode "resize"
-
 

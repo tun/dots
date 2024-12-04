@@ -1,0 +1,52 @@
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize grow width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize shrink width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize grow width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize shrink width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+mode "mouse" {
+  bindsym --to-code {
+    $left  seat - cursor move -10  0
+    $down  seat - cursor move  0   10
+    $up    seat - cursor move  0  -10
+    $right seat - cursor move  10  0
+    Left   seat - cursor move -10  0
+    Down   seat - cursor move  0   10
+    Up     seat - cursor move  0  -10
+    Right  seat - cursor move  10  0
+    a      seat - cursor press button1
+    s      seat - cursor press button2
+    d      seat - cursor press button3
+
+    p exec wl-kbptr;                 mode "default"
+    o exec wl-kbptr-sway-active-win; mode "default"
+    # Back to default mode
+    Return mode "default"
+    Escape mode "default"
+  }
+  bindsym --release {
+    a      seat - cursor press button1
+    s      seat - cursor press button2
+    d      seat - cursor press button3
+  }
+}
+
+bindsym $mod+m mode "mouse"
+
