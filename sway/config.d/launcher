@@ -2,4 +2,17 @@
 # Filebrowser
 bindsym Mod4+Shift+1 exec nautilus --new-window
 # Web browser
+bindsym Mod4+b exec firefox
 bindsym Mod4+Shift+2 exec firefox
+# Wofi
+bindsym Menu exec wofi --show drun,run
+
+### Auto start programs
+exec Telegram -startintray
+
+# Notification daemon
+exec swaync
+# Toggle control center
+bindsym Mod4+Shift+n exec swaync-client -t -sw
+
+exec nm-applet --indicator

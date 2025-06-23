@@ -1,7 +1,48 @@
+# don't show gaps if there's only one window on the desktop
+smart_gaps on
+
+# set floating mode for generated windows
+for_window [title="(?:Open|Save) (?:File|Folder|As)"] floating enable
+for_window [title="(?:Open|Save) (?:File|Folder|As)"] resize set 800 600
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+
+# set floating mode for specific applications
+for_window [app_id="firefox" title="^Library$"] floating enable, border pixel 1, sticky enable
+for_window [app_id="thunderbird" title=".*Reminder"] floating enable
+for_window [app_id="floating_shell"] floating enable, border pixel 1, sticky enable
+for_window [app_id="" title="Picture in picture"] floating enable, sticky enable
+for_window [app_id="" title="Picture-in-Picture"] floating enable, sticky enable
+for_window [title="Save File"] floating enable
+for_window [title="Firefox .*— Sharing Indicator"] floating enable, sticky enable, move to scratchpad
+for_window [title=".* is sharing a window."] floating enable, sticky enable, move to scratchpad
+for_window [title=".* is sharing your screen."] floating enable, sticky enable, move to scratchpad
+for_window [title="^wlay$"] floating enable
+
+# Don't allow applications to inhibit shortcuts, i.e. grab total control of the
+# keyboard. Chrome currently abuses this by enabling it for all "--app=..."
+# shortcuts.
+seat * shortcuts_inhibitor disable
+
+# Prevent swayidle while fullscreen
+for_window [class=".*"] inhibit_idle fullscreen
+for_window [app_id=".*"] inhibit_idle fullscreen
+
+# set title for xwayland applications
+for_window [shell="xwayland"] title_format "[XWayland] %title"
+
 # Make Calculator float
 for_window [app_id="org.gnome.Calculator"] floating enabled
 # File manager float by default
 for_window [app_id="org.gnome.Nautilus"] floating enabled
+# Gnome Tweaks
+for_window [app_id="gnome-tweaks"] floating enabled
+# Gparted
+for_window [app_id="GParted"] floating enabled
 # Fix for Firefox sharing indicator
 # First, open about:config, then set privacy.webrtc.legacyGlobalIndicator to false
 for_window [title="\ -\ Sharing\ Indicator$"] floating enable, sticky enable

@@ -15,7 +15,8 @@ set {
 
 bindsym --to-code {
     # Start a terminal
-    Mod1+Return exec $term
+    $mod+Return exec $term
+    $alt_mod+Return exec $alt_term
 
     # Start your launcher
     $alt_mod+f2 exec $menu
@@ -51,9 +52,9 @@ bindsym --to-code {
     $mod+Shift+Up move up
     $mod+Shift+Right move right
 
-		#
-		# Workspaces:
-		#
+    #
+    # Workspaces:
+    #
     # Switch to workspace
     Ctrl+1 workspace number 1
     Ctrl+2 workspace number 2
@@ -64,7 +65,6 @@ bindsym --to-code {
     Ctrl+7 workspace number 7
     Ctrl+8 workspace number 8
     Ctrl+9 workspace number 9
-    Ctrl+0 workspace number 10
     
     # Move focused container to workspace
     Ctrl+Shift+1 move container to workspace number 1
@@ -76,19 +76,20 @@ bindsym --to-code {
     Ctrl+Shift+7 move container to workspace number 7
     Ctrl+Shift+8 move container to workspace number 8
     Ctrl+Shift+9 move container to workspace number 9
-    Ctrl+Shift+0 move container to workspace number 10
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
 
     Ctrl+grave workspace number 0
     Ctrl+asciitilde move container to workspace number 0
 
+    $super+tab workspace next
+
     # Toggle show/hide bar
     Ctrl+Shift+b bar mode toggle
 
-		#
-		# Layout stuff:
-		#
+    #
+    # Layout stuff:
+    #
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
@@ -114,7 +115,7 @@ bindsym --to-code {
 
     #
     # Scratchpad:
-		#
+    #
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
 
@@ -127,7 +128,7 @@ bindsym --to-code {
 
     #
     # Screenshots:
-		#
+    #
     # Capture entire screen to clipboard
     Print exec grim - | wl-copy -t image/png
     # Grab selection to clipboard
@@ -136,7 +137,7 @@ bindsym --to-code {
 
     #
     # Media keys:
-		#
+    #
     # Pulse Audio Controls
     XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
     XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
@@ -149,5 +150,6 @@ bindsym --to-code {
     XF86AudioPlay exec playerctl play-pause
     XF86AudioNext exec playerctl next
     XF86AudioPrev exec playerctl previous
-}
 
+    XF86Calculator exec gnome-calculator
+}

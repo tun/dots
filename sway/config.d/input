@@ -10,7 +10,7 @@ input type:pointer {
 	natural_scroll enabled
 }
 
-input "type:keyboard" {
+input type:keyboard {
 	xkb_layout "60-percent-escape-grave-tilde"
 	xkb_options altwin:swap_lalt_lwin,caps:escape_shifted_capslock
 }
