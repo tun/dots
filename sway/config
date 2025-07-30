@@ -1,6 +1,6 @@
 set {
 	$term wezterm
-	$alt_term kitty
+	$alt_term ghostty
 
 	$menu wmenu-run -p "$(hostname)"
 }
