@@ -8,7 +8,7 @@ vim.o.laststatus = 0
 -- Fold
 vim.o.foldmethod = 'expr'
 vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
-vim.o.foldlevel = 2
+vim.o.foldlevel = 99
 
 -- Resize window splits when terminal is resized
 vim.cmd('autocmd VimResized * :wincmd =')

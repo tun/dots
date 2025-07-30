@@ -3,8 +3,8 @@ vim/.netrwhist
 vim/pack
 vim/undo
 
-# kitty
-kitty/custom.conf
+# neovim
+nvim/lazy-lock.json
 
 # sway
 sway/config.d/custom

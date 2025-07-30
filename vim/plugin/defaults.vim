@@ -46,8 +46,8 @@ endif
 " Folds {{{
 set foldenable
 set foldcolumn=0
-set foldlevel=1
-set foldmethod=indent
+set foldlevel=99
+" set foldmethod=indent
 " }}}
 
 " Search {{{

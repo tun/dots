@@ -1,4 +1,8 @@
 " FZF settings
+if has('nvim')
+  finish
+endif
+
 let g:fzf_layout = { 'window': 'enew' }
 let $FZF_DEFAULT_OPTS="--ansi --preview-window 'up:80%' --layout reverse"
 

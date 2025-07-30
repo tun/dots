@@ -6,4 +6,4 @@ endfunction
 
 command! RandomColorscheme silent! call RandomColorscheme()
 
-nnoremap <silent> <LocalLeader>r :RandomColorscheme<CR>
+nnoremap <silent> <LocalLeader>r :RandomColorscheme<cr>:colorscheme<cr>
