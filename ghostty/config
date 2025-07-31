@@ -1,7 +1,7 @@
 # Run `ghostty +show-config --default --docs` to view a list of
 # all available config options and their default values.
 font-size = 14
-theme = Retro
+theme = RetroLegends
 
 window-padding-x = 16
 window-padding-y = 16	

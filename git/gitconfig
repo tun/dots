@@ -1,22 +1,23 @@
-[include]
-	path = ~/.gitconfig_local
+# vim:ft=gitconfig
 [alias]
 	br = branch
+	bl = blame -w -C -C -C
 	ci = commit
 	co = checkout
 	d = diff --word-diff
 	di = difftool
 	dist = diff --stat
 	files = ls-files
-	last = log -n 1 -s --decorate
+	last = log -n 1 -s
 	hist = log --stat --graph --oneline --decorate --date=short
 	graph = log --color --graph --pretty=format:'%C(bold yellow)%h %C(bold red)%d%Creset %s %Cgreen(%cr) %C(magenta)<%an>%Creset' --abbrev-commit
 	orp = checkout --orphan
-	repos = remote -v
 	st = status --short -sb
 	stats = shortlog -e -s -m
 	tr = checkout --track -b
 	tree = ls-tree -r HEAD
+	mod = ls-files -m
+	session = "!nvim $(git ls-files -m)"
 [color]
 	ui = always
 [log]
@@ -28,16 +29,17 @@
 [push]
 	default = current
 [core]
-	editor = vim
+	editor = nvim
 	quotepath = false
 	excludesfile = ~/.gitignore_global
 [diff]
-	tool = vimdiff
+	tool = nvimdiff
 [color "diff"]
 	old = red strike
 	new = green italic
 [merge]
-	tool = vimdiff
+	tool = nvimdiff
+	conflicstyle = zdiff3
 [difftool]
 	prompt = false
 [pull]
